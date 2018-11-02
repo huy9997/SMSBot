@@ -14,22 +14,21 @@ auth_token = config.auth_token
 #rest client
 client = Client(account_sid, auth_token)
 
+    # start a Flask application 
 app = Flask(__name__)
 
-#userPrompt = input("What would you like to do today? Send, CheckMessages")
-  
-  #if userPrompt=="send" or userPrompt=="Send" :
-    #userInputPhoneNumber = input("What phone number would you like to contact")
+    # user input in the textmessage
 userInputMessage = input("What message would you like to send?") 
-    #send message
+   
+    #send message 
 messagesSend = client.messages \
     .create(
     body = userInputMessage,
     from_ = '+15109014776',
     to = '+19258951162'
     )
-#respond
 
+#response text message 
 @app.route("/sms", methods=['GET', 'POST'])
 def incoming_sms():
     """Send a dynamic reply to an incoming text message"""
