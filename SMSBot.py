@@ -5,28 +5,58 @@ from twilio import twiml
 import config
 from flask import Flask, request
 
-app = Flask(__name__)
-
 # Your Account Sid and Auth Token from twilio.com/console
 account_sid = config.account_sid
 auth_token = config.auth_token
+client = Client(account_sid, auth_token) #rest client
+app = Flask(__name__) # start a Flask application 
 
-#rest client
-client = Client(account_sid, auth_token)
 
-    # start a Flask application 
-app = Flask(__name__)
+def menu(){
+    userInputMenu = input("What would you like to do today: sendSMS, viewSMS, editContact")
+    if(userInputMenu == "sendSMS"):
+        listContacts()
 
-    # user input in the textmessage
-userInputMessage = input("What message would you like to send?") 
-   
-    #send message 
-messagesSend = client.messages \
+        sendSMS()
+    if(userInputMenu == "viewSMS"):
+        print("viewSMS is not avaiable at this time. :(")
+        viewSMS()
+    userInputPhoneNumber = input ("What phone number would you like to send this message to")
+    userInputMessage = input("What message would you like to send?")  # user input in the textmessage
+
+}
+def saveContact(){
+    contacts = dict(); 
+    contacts.
+
+    #save the contacts in dictionary Key= name Value = phone number
+}
+def editContact(){
+    # to go back and edit the phone number / Name  of saveContact 
+    # or to delete a contact 
+}
+def listContacts(){
+    # list all the keys in the dict 
+}
+
+def messagesSending(){
+    #call the sendSMS function to send a message to all the messages you would like to send to. 
+
+}
+def viewSMS(){
+    # have the admin view all conversations made by the bot
+
+}
+
+#send SMS message 
+def sendSMS(){
+    messagesSend = client.messages \
     .create(
     body = userInputMessage,
     from_ = '+15109014776',
-    to = '+19258951162'
+    to = userInputMessage
     )
+}
 
 #response text message 
 @app.route("/sms", methods=['GET', 'POST'])
@@ -43,8 +73,11 @@ def incoming_sms():
         resp.message("alvin sucks!")
     elif body == 'Huy':
         resp.message("huy is way better than alvin ")
+    elif body == 'Hashim':
+        resp.message("Hashim has a big dick")
     else:
         resp.message("none of the above")
+    
 
     return str(resp)
 
