@@ -12,7 +12,7 @@ client = Client(account_sid, auth_token) #rest client
 app = Flask(__name__) # start a Flask application 
 
 
-def menu(){
+def menu():
     userInputMenu = input("What would you like to do today: sendSMS, viewSMS, editContact")
     if(userInputMenu == "sendSMS"):
         userInputPhoneNumber = input ("What phone number would you like to send this message to")
@@ -25,39 +25,39 @@ def menu(){
     
      # user input in the textmessage
 
-}
-def saveContact(){
+
+def saveContact():
     contacts = dict(); 
 
     #save the contacts in dictionary Key= name Value = phone number
-}
-def editContact(){
+
+def editContact():
     # to go back and edit the phone number / Name  of saveContact 
     # or to delete a contact 
-}
-def listContacts(){
+
+def listContacts():
     # list all the keys in the dict 
     # user types in the contacts he would like to 
-}
 
-def messagesSending(){
+
+def messagesSending():
     #call the sendSMS function to send a message to all the messages you would like to send to. 
 
-}
-def viewSMS(){
+
+def viewSMS():
     # have the admin view all conversations made by the bot
 
-}
+
 
 #send SMS message 
-def sendSMS(){
+def sendSMS():
     messagesSend = client.messages \
     .create(
     body = userInputMessage,
     from_ = '+15109014776',
     to = userInputMessage
     )
-}
+
 
 #response text message 
 @app.route("/sms", methods=['GET', 'POST'])
