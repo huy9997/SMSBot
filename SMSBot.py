@@ -15,19 +15,19 @@ app = Flask(__name__) # start a Flask application
 def menu(){
     userInputMenu = input("What would you like to do today: sendSMS, viewSMS, editContact")
     if(userInputMenu == "sendSMS"):
+        userInputPhoneNumber = input ("What phone number would you like to send this message to")
+        userInputMessage = input("What message would you like to send?") 
         listContacts()
-
-        sendSMS()
+        messagesSending()
     if(userInputMenu == "viewSMS"):
         print("viewSMS is not avaiable at this time. :(")
         viewSMS()
-    userInputPhoneNumber = input ("What phone number would you like to send this message to")
-    userInputMessage = input("What message would you like to send?")  # user input in the textmessage
+    
+     # user input in the textmessage
 
 }
 def saveContact(){
     contacts = dict(); 
-    contacts.
 
     #save the contacts in dictionary Key= name Value = phone number
 }
@@ -37,6 +37,7 @@ def editContact(){
 }
 def listContacts(){
     # list all the keys in the dict 
+    # user types in the contacts he would like to 
 }
 
 def messagesSending(){
