@@ -13,50 +13,51 @@ app = Flask(__name__)   # start a Flask application
 
 
 def menu():
-    userInputMenu = input("What would you like to do today: sendSMS, viewSMS, editContact")
-    if userInputMenu == "sendSMS":
-        userInputPhoneNumber = input ("What phone number would you like to send this message to")
-        userInputMessage = input("What message would you like to send?") 
-        listContacts()
-        messagesSending()
-    if userInputMenu == "viewSMS":
-        print("viewSMS is not avaiable at this time. :(")
-        viewSMS()
+    user_input_menu = input("What would you like to do today: sendSMS, viewSMS, editContact")
+    if user_input_menu == "sendSMS":
+        recipient_number = input ("What phone number would you like to send this message to")
+        outgoing_message = input("What message would you like to send?")
+        list_contacts()
+        messages_sending()
+    if user_input_menu == "viewSMS":
+        print("viewSMS is not available at this time. :(")
+        view_sms()
     
-        # user input in the textmessage
+        # user input in the text message
 
 
-def saveContact():
+def save_contact():
     contacts = dict()
 
     # save the contacts in dictionary Key= name Value = phone number
 
-def editContact():
+
+def edit_contact():
     print("This function is used to edit contacts")
     # to go back and edit the phone number / Name  of saveContact 
     # or to delete a contact 
 
 
-def listContacts():
+def list_contacts():
     print("This function will list all user contacts for them "
           "to choose from")
     # list all the keys in the dict 
     # user types in the contacts he would like to 
 
 
-def messagesSending():
+def messages_sending():
     print("This message calls the sendSMS function for each recipient in list")
     # call the sendSMS function to send a message to all the messages you would like to send to.
 
 
-def viewSMS():
+def view_sms():
     print("This message allows the administrator to view all conversations made by the bot")
     # have the admin view all conversations made by the bot
 
 
 # send SMS message
-def sendSMS(outgoing_message, recipient):
-    messagesSend = client.messages \
+def send_sms(outgoing_message, recipient):
+    messages_send = client.messages \
         .create(body=outgoing_message, from_='+15109014776', to=recipient)
 
 

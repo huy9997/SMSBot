@@ -1,12 +1,16 @@
 from flask import Flask, request, redirect
 from twilio.twiml.messaging_response import MessagingResponse
+from twilio.rest import Client
+import config
 
-account_sid = config.account_sid
-auth_token = config.auth_token
+account_sid = config.api_key
+auth_token = config.access_token
 client = Client(account_sid, auth_token)
 
 
 app = Flask(__name__)
+
+
 @app.route("/sms", methods=['GET', 'POST'])
 def incoming_sms():
     """Send a dynamic reply to an incoming text message"""
@@ -23,6 +27,7 @@ def incoming_sms():
         resp.message("Goodbye")
 
     return str(resp)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
