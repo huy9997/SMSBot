@@ -1,4 +1,3 @@
-import os
 from twilio.rest import Client
 from twilio.twiml.messaging_response import MessagingResponse
 from twilio import twiml
@@ -25,11 +24,9 @@ def menu():
     
      # user input in the textmessage
 
-
+"""
 def saveContact():
-    contacts = dict(); 
-
-    #save the contacts in dictionary Key= name Value = phone number
+    save the contacts in dictionary Key= name Value = phone number
 
 def editContact():
     # to go back and edit the phone number / Name  of saveContact 
@@ -47,7 +44,7 @@ def messagesSending():
 def viewSMS():
     # have the admin view all conversations made by the bot
 
-
+"""
 
 #send SMS message 
 def sendSMS():
@@ -57,7 +54,6 @@ def sendSMS():
     from_ = '+15109014776',
     to = userInputMessage
     )
-
 
 #response text message 
 @app.route("/sms", methods=['GET', 'POST'])
@@ -88,4 +84,3 @@ if __name__ == "__main__":
   #To Do List: 
   # work on getting the 
   #
-  
