@@ -12,7 +12,8 @@ client = Client(account_sid, auth_token) #rest client
 app = Flask(__name__) # start a Flask application 
 
 
-userInputMenu = input("What would you like to do today: sendSMS, viewSMS, editContact\n")
+#userInputMenu = input("What would you like to do today: sendSMS, viewSMS, editContact\n")
+userInputMenu="sendSMS"
 if(userInputMenu == "sendSMS"):
     userInputPhoneNumber = input ("What phone number would you like to send this message to \n")
     userInputMessage = input("What message would you like to send?\n") 
@@ -43,12 +44,10 @@ def incoming_sms():
         resp.message("alvin sucks!")
     elif body == 'Huy':
         resp.message("huy is way better than alvin ")
-    elif body == 'Hashim':
-        resp.message("Hashim has a big dick")
     else:
         resp.message("none of the above")
     
-
+ 
     return str(resp)
 
 if __name__ == "__main__":
@@ -71,7 +70,7 @@ def contacts():
         userEditContactInputName = input("What phone number would you like to add")
     # if(makeNewContact)
         pass in the dict
-        
+
     #
 def addNewContact(): 
     # pass 
