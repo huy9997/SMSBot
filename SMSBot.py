@@ -12,15 +12,13 @@ client = Client(account_sid, auth_token) #rest client
 app = Flask(__name__) # start a Flask application 
 
 
-userInputMenu = "sendSMS"
-    #userInputMenu = input("What would you like to do today: sendSMS, viewSMS, editContact\n")
+userInputMenu = input("What would you like to do today: sendSMS, viewSMS, editContact\n")
 if(userInputMenu == "sendSMS"):
     userInputPhoneNumber = input ("What phone number would you like to send this message to \n")
     userInputMessage = input("What message would you like to send?\n") 
 if(userInputMenu == "viewSMS"):
     print("viewSMS is not avaiable at this time. :(")
     
-     # user input in the textmessage
 #send SMS message 
 def sendSMSMessage():
     messagesSend = client.messages \
@@ -63,10 +61,24 @@ if __name__ == "__main__":
 
 
 """
-def saveContact():
-    save the contacts in dictionary Key= name Value = phone number
-
+def contacts(): 
+    # ask user if they would like to either like to edit a existing contact or make a new one 
+    # if(editContact())
+        pass in the dict
+        print(dict)
+        userEditContactInputPhoneNumber = input("Whos phone number would you like to edit)
+        print(dict )
+        userEditContactInputName = input("What phone number would you like to add")
+    # if(makeNewContact)
+        pass in the dict
+        
+    #
+def addNewContact(): 
+    # pass 
+    # 
 def editContact():
+    # 
+    #
     # to go back and edit the phone number / Name  of saveContact 
     # or to delete a contact 
 
