@@ -33,19 +33,23 @@ def saveContact():
     #save the contacts in dictionary Key= name Value = phone number
 
 def editContact():
+    pass
     # to go back and edit the phone number / Name  of saveContact 
     # or to delete a contact 
 
 def listContacts():
+    pass
     # list all the keys in the dict 
     # user types in the contacts he would like to 
 
 
 def messagesSending():
+    pass
     #call the sendSMS function to send a message to all the messages you would like to send to. 
 
 
 def viewSMS():
+    pass
     # have the admin view all conversations made by the bot
 
 
