@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import os
 from twilio.rest import Client
 from twilio.twiml.messaging_response import MessagingResponse

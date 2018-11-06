@@ -5,12 +5,12 @@
 -be a collaborator on twilio s
 
 to run the program : 
-
-run python3 SMSBot.py 
+There is a Shebang for python3 now
+./SMSBot.py 
 run ngrok 
-copy the http ngrok link to twilio 
-  open the phone number in twilio and paste the ngrok link into the 
-  manage phone numbers 
+copy the http ngrok link to twilio
+open the phone number in twilio and paste the ngrok link into the
+manage phone numbers 
   
 
 
