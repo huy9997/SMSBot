@@ -11,7 +11,6 @@ client = Client(account_sid, auth_token) #rest client
 
 app = Flask(__name__) # start a Flask application 
 
-
 #userInputMenu = input("What would you like to do today: sendSMS, viewSMS, editContact\n")
 userInputMenu="sendSMS"
 if(userInputMenu == "sendSMS"):
