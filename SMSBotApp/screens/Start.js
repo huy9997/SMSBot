@@ -1,14 +1,21 @@
 import React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text, Image, Button } from "react-native";
 import Header from "../components/layouts/Header";
 import Footer from "../components/layouts/Footer";
-import Button from "../components/Button";
 import TextBox from "../components/TextBox";
 
 class Start extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  login = () => {
+    console.log("login");
+  };
+
+  signUp = () => {
+    console.log("sign up");
+  };
 
   render() {
     return (
@@ -20,8 +27,12 @@ class Start extends React.Component {
             <TextBox text="SMS Bot" />
           </View>
           <View style={styles.buttonsContainer}>
-            <Button text="press me" />
-            <Button text="press me also" />
+            <View style={styles.buttonStyle}>
+              <Button title="Login" onPress={this.login} />
+            </View>
+            <View style={styles.buttonStyle}>
+              <Button title="Sign Up" onPress={this.signUp} />
+            </View>
           </View>
         </View>
         <Footer style={styles.mainContainer} title />
@@ -47,8 +58,17 @@ const styles = StyleSheet.create({
   },
   buttonsContainer: {
     flex: 1,
+    backgroundColor: "green"
+  },
+  buttonStyle: {
+    marginLeft: "10%",
     marginRight: "10%",
-    marginLeft: "10%"
+    marginTop: "5%",
+    marginBottom: "5%",
+    height: 60,
+    borderRadius: 10,
+    justifyContent: "center",
+    backgroundColor: "white"
   }
 });
 
