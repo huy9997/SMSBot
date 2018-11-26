@@ -7,14 +7,14 @@ const Header = props => {
   const { text } = props;
 
   return (
-    <View style={styles.container}>
+    <View style={styles.mainContainer}>
       <TextBox text={text} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  mainContainer: {
     flex: 1,
     backgroundColor: "blue",
     flexDirection: "row",

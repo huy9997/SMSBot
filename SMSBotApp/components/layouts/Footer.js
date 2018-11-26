@@ -7,14 +7,14 @@ const Footer = props => {
   const { text } = props;
 
   return (
-    <View style={styles.container}>
+    <View style={styles.mainContainer}>
       <TextBox text={text} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  mainContainer: {
     flex: 1,
     flexDirection: "row",
     backgroundColor: "red"

@@ -5,35 +5,33 @@ import Footer from "../components/layouts/Footer";
 import Button from "../components/Button";
 import TextBox from "../components/TextBox";
 
-class StartScreen extends React.Component {
+class Start extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <View style={styles.container}>
-        <Header style={styles.header} />
+      <View style={styles.mainContainer}>
+        <Header style={styles.mainContainer} />
         <View style={styles.centerContainer}>
-          {/* logo half */}
           <View style={styles.logoContainer}>
             <Image source={require("../assets/icon.png")} />
             <TextBox text="SMS Bot" />
           </View>
-          {/* two button half */}
           <View style={styles.buttonsContainer}>
             <Button text="press me" />
             <Button text="press me also" />
           </View>
         </View>
-        <Footer style={styles.header} title />
+        <Footer style={styles.mainContainer} title />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  mainContainer: {
     flex: 1
   },
   centerContainer: {
@@ -51,13 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: "10%",
     marginLeft: "10%"
-  },
-  header: {
-    flex: 1
-  },
-  text: {
-    flex: 1
   }
 });
 
-export default StartScreen;
+export default Start;
