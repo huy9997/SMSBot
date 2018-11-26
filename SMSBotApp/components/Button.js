@@ -6,8 +6,12 @@ import TextBox from "../components/TextBox";
 const Button = props => {
   const { text } = props;
 
+  _onPressButton = () => {
+    console.log("pressed");
+  };
+
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={this._onPressButton}>
       <TextBox text={text} />
     </TouchableOpacity>
   );
@@ -15,15 +19,13 @@ const Button = props => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginLeft: "15%",
-    marginRight: "15%",
-    // alignItems: "center",
-    // justifyContent: "center",
+    height: 70,
+    marginTop: "5%",
+    marginBottom: "5%",
     backgroundColor: "#68a0cf",
     borderRadius: 10,
-    borderWidth: 1,
-    borderColor: "#fff"
+    borderColor: "#fff",
+    alignSelf: "stretch"
   }
 });
 

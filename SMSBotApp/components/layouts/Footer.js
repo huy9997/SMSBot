@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Button from "../Button";
 
 import TextBox from "../TextBox";
 
