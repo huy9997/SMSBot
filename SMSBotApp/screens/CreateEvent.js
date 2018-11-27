@@ -32,7 +32,6 @@ class CreateEvent extends React.Component {
 
     return (
       <View style={styles.mainContainer}>
-        <Header style={styles.mainContainer} />
         <View style={styles.container}>
           {/* event details */}
           <View style={styles.detailContainer}>

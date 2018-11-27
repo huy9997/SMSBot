@@ -11,6 +11,7 @@ class Start extends React.Component {
 
   login = () => {
     console.log("login");
+    return this.props.navigation.navigate("CreateEvent");
   };
 
   signUp = () => {
@@ -20,7 +21,6 @@ class Start extends React.Component {
   render() {
     return (
       <View style={styles.mainContainer}>
-        <Header style={styles.mainContainer} />
         <View style={styles.centerContainer}>
           <View style={styles.logoContainer}>
             <Image source={require("../assets/icon.png")} />
