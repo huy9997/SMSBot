@@ -58,13 +58,16 @@ const styles = StyleSheet.create({
   },
   buttonsContainer: {
     flex: 1,
+    justifyContent: "space-evenly",
+    alignItems: "center",
     backgroundColor: "green"
   },
   buttonStyle: {
-    marginLeft: "10%",
-    marginRight: "10%",
-    marginTop: "5%",
-    marginBottom: "5%",
+    // marginLeft: "10%",
+    // marginRight: "10%",
+    // marginTop: "5%",
+    // marginBottom: "5%",
+    width: 300,
     height: 60,
     borderRadius: 10,
     justifyContent: "center",

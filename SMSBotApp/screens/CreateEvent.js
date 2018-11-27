@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   container: {
-    flex: 6
+    flex: 8
   },
   scrollContainer: {
     flex: 1,
