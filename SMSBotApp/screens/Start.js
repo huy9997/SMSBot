@@ -23,8 +23,11 @@ class Start extends React.Component {
       <View style={styles.mainContainer}>
         <View style={styles.centerContainer}>
           <View style={styles.logoContainer}>
-            <Image source={require("../assets/icon.png")} />
-            <TextBox text="SMS Bot" />
+            <Image
+              // style={{ height: 50, width: 50 }}
+              source={require("../assets/icon.png")}
+            />
+            <Text>SMS Bot</Text>
           </View>
           <View style={styles.buttonsContainer}>
             <View style={styles.buttonStyle}>
@@ -47,27 +50,26 @@ const styles = StyleSheet.create({
   },
   centerContainer: {
     flex: 6,
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: "black"
   },
   logoContainer: {
     flex: 1,
-    marginLeft: "20%",
-    marginRight: "20%",
-    paddingTop: "20%",
-    alignItems: "center"
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "red"
   },
   buttonsContainer: {
     flex: 1,
+    width: "100%",
     justifyContent: "space-evenly",
     alignItems: "center",
     backgroundColor: "green"
   },
   buttonStyle: {
-    // marginLeft: "10%",
-    // marginRight: "10%",
-    // marginTop: "5%",
-    // marginBottom: "5%",
-    width: 300,
+    width: "80%",
     height: 60,
     borderRadius: 10,
     justifyContent: "center",
