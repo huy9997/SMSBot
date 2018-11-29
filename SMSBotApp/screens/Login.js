@@ -24,18 +24,18 @@ class Login extends React.Component {
     };
   }
 
-  // static navigationOptions = {
-  //   title: "Login",
-  //   headerStyle: {
-  //     backgroundColor: "#0C72FF"
-  //   },
-  //   headerTitleStyle: {
-  //     fontWeight: "bold",
-  //     fontSize: 20,
-  //     color: "white"
-  //   },
-  //   headerTintColor: "white"
-  // };
+  static navigationOptions = {
+    title: "Login"
+    // headerStyle: {
+    //   backgroundColor: "#0C72FF"
+    // },
+    // headerTitleStyle: {
+    //   fontWeight: "bold",
+    //   fontSize: 20,
+    //   color: "white"
+    // },
+    // headerTintColor: "white"
+  };
 
   isFormFilled = () => {
     return this.state.email == "" || this.state.password == "";

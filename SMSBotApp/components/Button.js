@@ -1,46 +1,37 @@
-import React, { Component } from "react";
+import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 
-// might need to change this to a functional component
+disabledButton = props => {
+  const { title, borderStyle, textStyle, disabled } = props;
 
-class Button extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  return (
+    <TouchableOpacity
+      style={{ ...borderStyle, backgroundColor: "#E9EAED" }}
+      disabled={disabled}
+    >
+      <Text style={{ ...textStyle, color: "#cdcdcd" }}>{title}</Text>
+    </TouchableOpacity>
+  );
+};
 
-  disabledButton = () => {
-    const { title, buttonBorderStyle, buttonTextStyle, disabled } = this.props;
+clickableButton = props => {
+  const { onPress, title, borderStyle, textStyle } = props;
 
-    return (
-      <TouchableOpacity
-        style={{ ...buttonBorderStyle, backgroundColor: "#E9EAED" }}
-        disabled={disabled}
-      >
-        <Text style={{ ...buttonTextStyle, color: "#cdcdcd" }}>{title}</Text>
-      </TouchableOpacity>
-    );
-  };
+  return (
+    <TouchableOpacity style={borderStyle} onPress={onPress}>
+      <Text style={textStyle}>{title}</Text>
+    </TouchableOpacity>
+  );
+};
 
-  clickableButton = () => {
-    const { onPress, title, buttonBorderStyle, buttonTextStyle } = this.props;
+const Button = props => {
+  const { disabled } = props;
 
-    return (
-      <TouchableOpacity style={buttonBorderStyle} onPress={onPress}>
-        <Text style={buttonTextStyle}>{title}</Text>
-      </TouchableOpacity>
-    );
-  };
-
-  render() {
-    const { disabled } = this.props;
-
-    return disabled ? this.disabledButton() : this.clickableButton();
-  }
-}
+  return disabled ? disabledButton(props) : clickableButton(props);
+};
 
 Button.defaultProps = {
-  buttonBorderStyle: {
+  borderStyle: {
     justifyContent: "center",
     alignItems: "center",
     width: "80%",
@@ -48,7 +39,7 @@ Button.defaultProps = {
     borderRadius: 10,
     backgroundColor: "#0144A0"
   },
-  buttonTextStyle: {
+  textStyle: {
     fontSize: 20,
     color: "white"
   }
