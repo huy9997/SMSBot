@@ -10,6 +10,7 @@ import {
 import Footer from "../components/layouts/Footer";
 import DismissKeyboard from "../components/DismissKeyboard";
 import Button from "../components/Button";
+import Logo from "../components/Logo";
 
 // todo
 // clean up
@@ -45,16 +46,21 @@ class Login extends React.Component {
     return this.props.navigation.navigate("CreateEvent");
   };
 
+  onChangeText = (value, text) => {
+    this.setState({ [value]: text });
+  };
+
   render() {
     const { email, password } = this.state;
+
+    console.log(password);
 
     return (
       <DismissKeyboard>
         <KeyboardAvoidingView style={styles.mainContainer} behavior="padding">
-          <View style={styles.centerContainer}>
+          <View style={styles.contentContainer}>
             <View style={styles.logoContainer}>
-              <Image source={require("../assets/icon.png")} />
-              <Text>SMS Bot</Text>
+              <Logo title="SMS Bot" source={require("../assets/icon.png")} />
             </View>
             <View style={styles.loginInputContainer}>
               <View style={styles.eventInputStyle}>
@@ -62,7 +68,7 @@ class Login extends React.Component {
                   style={styles.textInputStyle}
                   placeholder="Enter Email Address"
                   placeholderTextColor="#cdcdcd"
-                  onChangeText={text => this.setState({ email: text })}
+                  onChangeText={text => this.onChangeText("email", text)}
                   value={email}
                   keyboardType="email-address"
                   textContentType="emailAddress"
@@ -73,7 +79,7 @@ class Login extends React.Component {
                   style={styles.textInputStyle}
                   placeholder="Enter Password"
                   placeholderTextColor="#cdcdcd"
-                  onChangeText={text => this.setState({ password: text })}
+                  onChangeText={text => this.onChangeText("password", text)}
                   value={password}
                   textContentType="password"
                   secureTextEntry={true}
@@ -81,7 +87,7 @@ class Login extends React.Component {
               </View>
               <Button
                 title="Login"
-                onPress={this.login}
+                onPress={() => this.login()}
                 disabled={this.isFormFilled()}
               />
             </View>
@@ -98,25 +104,21 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#559bfd"
   },
-  centerContainer: {
+  contentContainer: {
     flex: 8
   },
   logoContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-    // backgroundColor: "blue"
+    flex: 1
   },
   loginInputContainer: {
     flex: 1,
     justifyContent: "space-evenly",
     alignItems: "center"
-    // backgroundColor: "green"
   },
   eventInputStyle: {
     justifyContent: "center",
     borderRadius: 50,
-    width: "85%",
+    width: "80%",
     height: 60,
     padding: 10,
     backgroundColor: "#005FE1"
@@ -126,13 +128,6 @@ const styles = StyleSheet.create({
     width: "100%",
     color: "white",
     fontSize: 20
-  },
-  buttonStyle: {
-    width: "85%",
-    height: 60,
-    borderRadius: 10,
-    justifyContent: "center",
-    backgroundColor: "white"
   }
 });
 
