@@ -1,19 +1,10 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TextInput,
-  KeyboardAvoidingView
-} from "react-native";
+import { StyleSheet, View, Text, KeyboardAvoidingView } from "react-native";
 import Footer from "../components/layouts/Footer";
 import DismissKeyboard from "../components/DismissKeyboard";
 import Button from "../components/Button";
 import Logo from "../components/Logo";
-
-// todo
-// clean up
+import Input from "../components/Input";
 
 class Login extends React.Component {
   constructor(props) {
@@ -53,47 +44,45 @@ class Login extends React.Component {
   render() {
     const { email, password } = this.state;
 
-    console.log(password);
-
     return (
       <DismissKeyboard>
-        <KeyboardAvoidingView style={styles.mainContainer} behavior="padding">
+        <View style={styles.mainContainer}>
           <View style={styles.contentContainer}>
             <View style={styles.logoContainer}>
               <Logo title="SMS Bot" source={require("../assets/icon.png")} />
             </View>
-            <View style={styles.loginInputContainer}>
-              <View style={styles.eventInputStyle}>
-                <TextInput
-                  style={styles.textInputStyle}
-                  placeholder="Enter Email Address"
-                  placeholderTextColor="#cdcdcd"
-                  onChangeText={text => this.onChangeText("email", text)}
-                  value={email}
-                  keyboardType="email-address"
-                  textContentType="emailAddress"
-                />
-              </View>
-              <View style={styles.eventInputStyle}>
-                <TextInput
-                  style={styles.textInputStyle}
-                  placeholder="Enter Password"
-                  placeholderTextColor="#cdcdcd"
-                  onChangeText={text => this.onChangeText("password", text)}
-                  value={password}
-                  textContentType="password"
-                  secureTextEntry={true}
-                />
-              </View>
+            <KeyboardAvoidingView
+              style={styles.loginInputContainer}
+              behavior="padding"
+            >
+              <Input
+                placeholder="Enter Email Address"
+                placeholderTextColor="#cdcdcd"
+                value={email}
+                onChangeText={this.onChangeText}
+                stateToBeChanged="email"
+                keyboardType="email-address"
+                textContentType="emailAddress"
+              />
+              <Input
+                placeholder="Enter Password"
+                placeholderTextColor="#cdcdcd"
+                value={password}
+                onChangeText={this.onChangeText}
+                stateToBeChanged="password"
+                textContentType="password"
+                secureTextEntry={true}
+              />
               <Button
                 title="Login"
                 onPress={() => this.login()}
                 disabled={this.isFormFilled()}
               />
-            </View>
+              <Text>Forgot Password?</Text>
+            </KeyboardAvoidingView>
           </View>
-          <Footer style={styles.mainContainer} title />
-        </KeyboardAvoidingView>
+          <Footer style={styles.mainContainer} />
+        </View>
       </DismissKeyboard>
     );
   }
@@ -108,26 +97,13 @@ const styles = StyleSheet.create({
     flex: 8
   },
   logoContainer: {
-    flex: 1
+    flex: 2,
+    marginTop: 20
   },
   loginInputContainer: {
-    flex: 1,
+    flex: 3,
     justifyContent: "space-evenly",
     alignItems: "center"
-  },
-  eventInputStyle: {
-    justifyContent: "center",
-    borderRadius: 50,
-    width: "80%",
-    height: 60,
-    padding: 10,
-    backgroundColor: "#005FE1"
-  },
-  textInputStyle: {
-    height: "100%",
-    width: "100%",
-    color: "white",
-    fontSize: 20
   }
 });
 
