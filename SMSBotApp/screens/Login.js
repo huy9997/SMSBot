@@ -4,13 +4,12 @@ import {
   View,
   Text,
   Image,
-  Button,
   TextInput,
   KeyboardAvoidingView
 } from "react-native";
 import Footer from "../components/layouts/Footer";
-import TextBox from "../components/TextBox";
 import DismissKeyboard from "../components/DismissKeyboard";
+import Button from "../components/Button";
 
 // todo
 // remove styling in input
@@ -20,6 +19,19 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  static navigationOptions = {
+    title: "Login",
+    headerStyle: {
+      backgroundColor: "#0C72FF"
+    },
+    headerTitleStyle: {
+      fontWeight: "bold",
+      fontSize: 20,
+      color: "white"
+    },
+    headerTintColor: "white"
+  };
 
   state = {
     email: "",
@@ -72,13 +84,18 @@ class Login extends React.Component {
                   secureTextEntry={true}
                 />
               </View>
-              <View style={styles.buttonStyle}>
+              {/* <View style={styles.buttonStyle}>
                 <Button
                   title="Login"
                   onPress={this.login}
                   disabled={this.isFormFilled()}
                 />
-              </View>
+              </View> */}
+              <Button
+                title="Login"
+                onPress={this.login}
+                disabled={this.isFormFilled()}
+              />
             </View>
           </View>
           <Footer style={styles.mainContainer} title />
@@ -90,17 +107,17 @@ class Login extends React.Component {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "blue"
   },
   centerContainer: {
-    flex: 8,
-    backgroundColor: "black"
+    flex: 8
   },
   logoContainer: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "blue"
+    alignItems: "center"
+    // backgroundColor: "blue"
   },
   loginInputContainer: {
     flex: 1,

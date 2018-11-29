@@ -1,8 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
 import Footer from "../components/layouts/Footer";
-import TextBox from "../components/TextBox";
-
 import Button from "../components/Button";
 
 class Start extends React.Component {
@@ -43,16 +41,8 @@ class Start extends React.Component {
             <Text style={styles.textStyle}>SMS Bot</Text>
           </View>
           <View style={styles.buttonsContainer}>
-            <Button
-              title="Login"
-              onPress={this.login}
-              //  buttonStyle={}
-            />
-            <Button
-              title="Sign Up"
-              onPress={this.signUp}
-              // buttonStyle={}
-            />
+            <Button title="Login" onPress={this.login} />
+            <Button title="Sign Up" onPress={this.signUp} />
           </View>
         </View>
         <Footer style={styles.mainContainer} title />
