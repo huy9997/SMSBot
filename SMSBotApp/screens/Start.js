@@ -1,8 +1,10 @@
 import React from "react";
-import { StyleSheet, View, Text, Image, Button } from "react-native";
+import { StyleSheet, View, Text, Image } from "react-native";
 import Header from "../components/layouts/Header";
 import Footer from "../components/layouts/Footer";
 import TextBox from "../components/TextBox";
+
+import Button from "../components/Button";
 
 class Start extends React.Component {
   constructor(props) {
@@ -30,12 +32,17 @@ class Start extends React.Component {
             <Text>SMS Bot</Text>
           </View>
           <View style={styles.buttonsContainer}>
-            <View style={styles.buttonStyle}>
+            {/* <View style={styles.buttonStyle}>
               <Button title="Login" onPress={this.login} />
-            </View>
-            <View style={styles.buttonStyle}>
+            </View> */}
+            {/* <View style={styles.buttonStyle}>
               <Button title="Sign Up" onPress={this.signUp} />
-            </View>
+            </View> */}
+            <Button
+              title="Sign Up"
+              onPress={this.signUp}
+              // buttonStyle={}
+            />
           </View>
         </View>
         <Footer style={styles.mainContainer} title />
@@ -46,27 +53,28 @@ class Start extends React.Component {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "#559bfd"
   },
   centerContainer: {
     flex: 6,
-    width: "100%",
+    // width: "100%",
     justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "black"
+    alignItems: "center"
+    // backgroundColor: "black"
   },
   logoContainer: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "red"
+    alignItems: "center"
+    // backgroundColor: "red"
   },
   buttonsContainer: {
     flex: 1,
     width: "100%",
     justifyContent: "space-evenly",
-    alignItems: "center",
-    backgroundColor: "green"
+    alignItems: "center"
+    // backgroundColor: "green"
   },
   buttonStyle: {
     width: "80%",
