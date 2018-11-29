@@ -16,8 +16,7 @@ const Footer = props => {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    flexDirection: "row",
-    backgroundColor: "red"
+    backgroundColor: "#0C72FF"
   }
 });
 

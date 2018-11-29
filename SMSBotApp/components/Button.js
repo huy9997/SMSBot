@@ -38,11 +38,10 @@ const styles = StyleSheet.create({
     width: "80%",
     height: 60,
     borderRadius: 10,
-    backgroundColor: "blue"
+    backgroundColor: "#0144A0"
   },
   buttonTextStyle: {
-    // fontSize:
-    // font:
+    fontSize: 20,
     color: "white"
   }
 });

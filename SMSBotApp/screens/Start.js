@@ -1,43 +1,53 @@
 import React from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
-import Header from "../components/layouts/Header";
 import Footer from "../components/layouts/Footer";
 import TextBox from "../components/TextBox";
 
 import Button from "../components/Button";
 
 class Start extends React.Component {
+  static navigationOptions = {
+    title: "SMS Bot",
+    headerStyle: {
+      backgroundColor: "#0C72FF"
+    },
+    headerTitleStyle: {
+      fontWeight: "bold",
+      fontSize: 20,
+      color: "white"
+    }
+    // headerTintColor: "white"
+  };
+
   constructor(props) {
     super(props);
   }
 
   login = () => {
-    console.log("login");
-    return this.props.navigation.navigate("CreateEvent");
+    return this.props.navigation.navigate("Login");
   };
 
   signUp = () => {
-    console.log("sign up");
+    return this.props.navigation.navigate("SignUp");
   };
 
   render() {
     return (
       <View style={styles.mainContainer}>
-        <View style={styles.centerContainer}>
+        <View style={styles.contentContainer}>
           <View style={styles.logoContainer}>
             <Image
               // style={{ height: 50, width: 50 }}
               source={require("../assets/icon.png")}
             />
-            <Text>SMS Bot</Text>
+            <Text style={styles.textStyle}>SMS Bot</Text>
           </View>
           <View style={styles.buttonsContainer}>
-            {/* <View style={styles.buttonStyle}>
-              <Button title="Login" onPress={this.login} />
-            </View> */}
-            {/* <View style={styles.buttonStyle}>
-              <Button title="Sign Up" onPress={this.signUp} />
-            </View> */}
+            <Button
+              title="Login"
+              onPress={this.login}
+              //  buttonStyle={}
+            />
             <Button
               title="Sign Up"
               onPress={this.signUp}
@@ -56,9 +66,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#559bfd"
   },
-  centerContainer: {
-    flex: 6,
-    // width: "100%",
+  contentContainer: {
+    flex: 8,
     justifyContent: "center",
     alignItems: "center"
     // backgroundColor: "black"
@@ -69,19 +78,17 @@ const styles = StyleSheet.create({
     alignItems: "center"
     // backgroundColor: "red"
   },
+  textStyle: {
+    marginTop: 20,
+    fontSize: 15,
+    color: "white"
+  },
   buttonsContainer: {
     flex: 1,
     width: "100%",
     justifyContent: "space-evenly",
     alignItems: "center"
     // backgroundColor: "green"
-  },
-  buttonStyle: {
-    width: "80%",
-    height: 60,
-    borderRadius: 10,
-    justifyContent: "center",
-    backgroundColor: "white"
   }
 });
 
