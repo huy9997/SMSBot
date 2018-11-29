@@ -4,18 +4,18 @@ import Footer from "../components/layouts/Footer";
 import Button from "../components/Button";
 
 class Start extends React.Component {
-  static navigationOptions = {
-    title: "SMS Bot",
-    headerStyle: {
-      backgroundColor: "#0C72FF"
-    },
-    headerTitleStyle: {
-      fontWeight: "bold",
-      fontSize: 20,
-      color: "white"
-    }
-    // headerTintColor: "white"
-  };
+  // static navigationOptions = {
+  //   title: "SMS Bot",
+  //   headerStyle: {
+  //     backgroundColor: "#0C72FF"
+  //   },
+  //   headerTitleStyle: {
+  //     fontWeight: "bold",
+  //     fontSize: 20,
+  //     color: "white"
+  //   },
+  //   headerTintColor: "white"
+  // };
 
   constructor(props) {
     super(props);

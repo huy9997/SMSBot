@@ -14,13 +14,13 @@ import TextBox from "../components/TextBox";
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
-  }
 
-  state = {
-    email: "",
-    password: "",
-    confirmPassword: ""
-  };
+    this.state = {
+      email: "",
+      password: "",
+      confirmPassword: ""
+    };
+  }
 
   signUp = () => {
     console.log(this.state);

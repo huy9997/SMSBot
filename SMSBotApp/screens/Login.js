@@ -12,31 +12,30 @@ import DismissKeyboard from "../components/DismissKeyboard";
 import Button from "../components/Button";
 
 // todo
-// remove styling in input
 // clean up
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      email: "",
+      password: ""
+    };
   }
 
-  static navigationOptions = {
-    title: "Login",
-    headerStyle: {
-      backgroundColor: "#0C72FF"
-    },
-    headerTitleStyle: {
-      fontWeight: "bold",
-      fontSize: 20,
-      color: "white"
-    },
-    headerTintColor: "white"
-  };
-
-  state = {
-    email: "",
-    password: ""
-  };
+  // static navigationOptions = {
+  //   title: "Login",
+  //   headerStyle: {
+  //     backgroundColor: "#0C72FF"
+  //   },
+  //   headerTitleStyle: {
+  //     fontWeight: "bold",
+  //     fontSize: 20,
+  //     color: "white"
+  //   },
+  //   headerTintColor: "white"
+  // };
 
   isFormFilled = () => {
     return this.state.email == "" || this.state.password == "";
@@ -60,11 +59,9 @@ class Login extends React.Component {
             <View style={styles.loginInputContainer}>
               <View style={styles.eventInputStyle}>
                 <TextInput
-                  style={{
-                    width: "100%",
-                    height: "100%"
-                  }}
+                  style={styles.textInputStyle}
                   placeholder="Enter Email Address"
+                  placeholderTextColor="#cdcdcd"
                   onChangeText={text => this.setState({ email: text })}
                   value={email}
                   keyboardType="email-address"
@@ -73,24 +70,15 @@ class Login extends React.Component {
               </View>
               <View style={styles.eventInputStyle}>
                 <TextInput
-                  style={{
-                    width: "100%",
-                    height: "100%"
-                  }}
+                  style={styles.textInputStyle}
                   placeholder="Enter Password"
+                  placeholderTextColor="#cdcdcd"
                   onChangeText={text => this.setState({ password: text })}
                   value={password}
                   textContentType="password"
                   secureTextEntry={true}
                 />
               </View>
-              {/* <View style={styles.buttonStyle}>
-                <Button
-                  title="Login"
-                  onPress={this.login}
-                  disabled={this.isFormFilled()}
-                />
-              </View> */}
               <Button
                 title="Login"
                 onPress={this.login}
@@ -108,7 +96,7 @@ class Login extends React.Component {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: "blue"
+    backgroundColor: "#559bfd"
   },
   centerContainer: {
     flex: 8
@@ -122,16 +110,22 @@ const styles = StyleSheet.create({
   loginInputContainer: {
     flex: 1,
     justifyContent: "space-evenly",
-    alignItems: "center",
-    backgroundColor: "green"
+    alignItems: "center"
+    // backgroundColor: "green"
   },
   eventInputStyle: {
+    justifyContent: "center",
     borderRadius: 50,
     width: "85%",
     height: 60,
     padding: 10,
-    justifyContent: "center",
-    backgroundColor: "red"
+    backgroundColor: "#005FE1"
+  },
+  textInputStyle: {
+    height: "100%",
+    width: "100%",
+    color: "white",
+    fontSize: 20
   },
   buttonStyle: {
     width: "85%",

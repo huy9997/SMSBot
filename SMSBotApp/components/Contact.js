@@ -12,11 +12,11 @@ import TextBox from "../components/TextBox";
 class Contact extends React.Component {
   constructor(props) {
     super(props);
-  }
 
-  state = {
-    isChecked: false
-  };
+    this.state = {
+      isChecked: false
+    };
+  }
 
   reverseIsChecked = () => {
     this.setState({

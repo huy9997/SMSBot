@@ -14,11 +14,24 @@ const IntroStack = createStackNavigator(
     CreateEvent: CreateEventScreen
   },
   {
-    initialRouteName: "Introduction"
-    // initialRouteName: "Login"
-    // initialRouteName: "SignUp"
-    // initialRouteName: "Events"
-    // initialRouteName: "CreateEvent"
+    // initialRouteName: "Introduction",
+    initialRouteName: "Login",
+    // initialRouteName: "SignUp",
+    // initialRouteName: "Events",
+    // initialRouteName: "CreateEvent",
+
+    defaultNavigationOptions: {
+      title: "SMS Bot",
+      headerStyle: {
+        backgroundColor: "#0C72FF"
+      },
+      headerTitleStyle: {
+        fontWeight: "bold",
+        fontSize: 20,
+        color: "white"
+      },
+      headerTintColor: "white"
+    }
   }
 );
 
