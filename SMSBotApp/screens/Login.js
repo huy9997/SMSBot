@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, View, Text, KeyboardAvoidingView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  KeyboardAvoidingView,
+  TouchableOpacity
+} from "react-native";
 import Footer from "../components/layouts/Footer";
 import DismissKeyboard from "../components/DismissKeyboard";
 import Button from "../components/Button";
@@ -18,15 +24,6 @@ class Login extends React.Component {
 
   static navigationOptions = {
     title: "Login"
-    // headerStyle: {
-    //   backgroundColor: "#0C72FF"
-    // },
-    // headerTitleStyle: {
-    //   fontWeight: "bold",
-    //   fontSize: 20,
-    //   color: "white"
-    // },
-    // headerTintColor: "white"
   };
 
   isFormFilled = () => {
@@ -78,7 +75,10 @@ class Login extends React.Component {
                 onPress={() => this.login()}
                 disabled={this.isFormFilled()}
               />
-              <Text>Forgot Password?</Text>
+              {/* add functionality to forgot password */}
+              <TouchableOpacity>
+                <Text style={{ color: "white" }}>Forgot Password?</Text>
+              </TouchableOpacity>
             </KeyboardAvoidingView>
           </View>
           <Footer style={styles.mainContainer} />
@@ -97,11 +97,10 @@ const styles = StyleSheet.create({
     flex: 8
   },
   logoContainer: {
-    flex: 2,
-    marginTop: 20
+    flex: 3
   },
   loginInputContainer: {
-    flex: 3,
+    flex: 4,
     justifyContent: "space-evenly",
     alignItems: "center"
   }

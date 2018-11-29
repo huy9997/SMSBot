@@ -1,15 +1,11 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  Button,
-  TextInput,
-  KeyboardAvoidingView
-} from "react-native";
+import { StyleSheet, View, KeyboardAvoidingView } from "react-native";
+
+import DismissKeyboard from "../components/DismissKeyboard";
 import Footer from "../components/layouts/Footer";
-import TextBox from "../components/TextBox";
+import Button from "../components/Button";
+import Logo from "../components/Logo";
+import Input from "../components/Input";
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -22,9 +18,13 @@ class SignUp extends React.Component {
     };
   }
 
+  static navigationOptions = {
+    title: "Sign Up"
+  };
+
   signUp = () => {
     console.log(this.state);
-    // return this.props.navigation.navigate("CreateEvent");
+    return this.props.navigation.navigate("CreateEvent");
   };
 
   isFormFilled = () => {
@@ -35,98 +35,80 @@ class SignUp extends React.Component {
     );
   };
 
+  onChangeText = (value, text) => {
+    this.setState({ [value]: text });
+  };
+
   render() {
     const { email, password, confirmPassword } = this.state;
 
     return (
-      <KeyboardAvoidingView style={styles.mainContainer} behavior="padding">
-        <View style={styles.centerContainer}>
-          <View style={styles.logoContainer}>
-            <Image source={require("../assets/icon.png")} />
-            <TextBox text="SMS Bot" />
-          </View>
-          <View style={styles.loginInputContainer}>
-            <View style={styles.eventInputStyle}>
-              <TextInput
+      <DismissKeyboard>
+        <View style={styles.mainContainer}>
+          <View style={styles.centerContainer}>
+            <View style={styles.logoContainer}>
+              <Logo source={require("../assets/icon.png")} title="SMS Bot" />
+            </View>
+            <KeyboardAvoidingView
+              style={styles.loginInputContainer}
+              behavior="padding"
+            >
+              <Input
                 placeholder="Enter Email Address"
-                onChangeText={text => this.setState({ email: text })}
+                placeholderTextColor="#cdcdcd"
                 value={email}
+                onChangeText={this.onChangeText}
+                stateToBeChanged="email"
                 keyboardType="email-address"
                 textContentType="emailAddress"
               />
-            </View>
-            <View style={styles.eventInputStyle}>
-              <TextInput
+              <Input
                 placeholder="Enter Password"
-                onChangeText={text => this.setState({ password: text })}
+                placeholderTextColor="#cdcdcd"
                 value={password}
+                onChangeText={this.onChangeText}
+                stateToBeChanged="password"
                 textContentType="password"
                 secureTextEntry={true}
               />
-            </View>
-            <View style={styles.eventInputStyle}>
-              <TextInput
+              <Input
                 placeholder="Confirm Password"
-                onChangeText={text => this.setState({ confirmPassword: text })}
+                placeholderTextColor="#cdcdcd"
                 value={confirmPassword}
+                onChangeText={this.onChangeText}
+                stateToBeChanged="confirmPassword"
                 textContentType="password"
                 secureTextEntry={true}
               />
-            </View>
-            <View style={styles.buttonStyle}>
               <Button
                 title="Create Account"
                 onPress={this.signUp}
                 disabled={this.isFormFilled()}
               />
-            </View>
+            </KeyboardAvoidingView>
           </View>
+          <Footer style={styles.mainContainer} />
         </View>
-        <Footer style={styles.mainContainer} title />
-      </KeyboardAvoidingView>
+      </DismissKeyboard>
     );
   }
 }
 
 const styles = StyleSheet.create({
   mainContainer: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "#559bfd"
   },
   centerContainer: {
-    flex: 8,
-    backgroundColor: "black"
+    flex: 8
   },
   logoContainer: {
-    flex: 1,
-    marginLeft: "20%",
-    marginRight: "20%",
-    paddingTop: "20%",
-    alignItems: "center"
+    flex: 3
   },
   loginInputContainer: {
-    flex: 1,
+    flex: 4,
     justifyContent: "space-evenly",
-    alignItems: "center",
-    backgroundColor: "green"
-  },
-  eventInputStyle: {
-    borderRadius: 50,
-    width: 350,
-    height: 60,
-    padding: 10,
-    justifyContent: "center",
-    backgroundColor: "red"
-  },
-  buttonStyle: {
-    // marginLeft: "10%",
-    // marginRight: "10%",
-    // marginTop: "5%",
-    // marginBottom: "5%",
-    width: 350,
-    height: 60,
-    borderRadius: 10,
-    justifyContent: "center",
-    backgroundColor: "white"
+    alignItems: "center"
   }
 });
 
