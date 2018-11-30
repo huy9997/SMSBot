@@ -23,7 +23,6 @@ class Events extends React.Component {
 
   isSearching = () => {
     const { isSearching } = this.state;
-    console.log(isSearching);
 
     this.setState({ isSearching: !isSearching });
   };
@@ -33,17 +32,13 @@ class Events extends React.Component {
       headerTitle: "Events",
       headerLeft: (
         <IconButton
-          borderStyle={{
-            margin: 30
-          }}
+          borderStyle={{ margin: 30 }}
           source={require("../assets/icon.png")}
         />
       ),
       headerRight: (
         <IconButton
-          borderStyle={{
-            margin: 30
-          }}
+          borderStyle={{ margin: 30 }}
           source={require("../assets/icon.png")}
           onPress={navigation.getParam("isSearching")}
         />
@@ -56,12 +51,14 @@ class Events extends React.Component {
   };
 
   render() {
+    const { navigation } = this.props;
+
     return (
       <View style={styles.mainContainer}>
         <EventsList />
         <IconButton
           source={require("../assets/icon.png")}
-          onPress={() => this.createEvent()}
+          onPress={() => navigation.navigate("CreateEvent")}
         />
       </View>
     );

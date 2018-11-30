@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, TextInput } from "react-native";
+import { View, TextInput } from "react-native";
 
 const Input = props => {
   const {
@@ -37,7 +37,6 @@ const Input = props => {
 
 Input.defaultProps = {
   borderStyle: {
-    justifyContent: "center",
     borderRadius: 50,
     width: "80%",
     height: 60,
@@ -49,7 +48,8 @@ Input.defaultProps = {
     width: "100%",
     color: "white",
     fontSize: 20
-  }
+  },
+  placeholderTextColor: "#cdcdcd"
 };
 
 export default Input;

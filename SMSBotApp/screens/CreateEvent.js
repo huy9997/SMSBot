@@ -1,26 +1,39 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  ScrollView,
-  Button,
-  TextInput
-} from "react-native";
-import Header from "../components/layouts/Header";
-import Footer from "../components/layouts/Footer";
-import TextBox from "../components/TextBox";
+import { StyleSheet, View } from "react-native";
 import ContactList from "../components/ContactList";
+import IconButton from "../components/IconButton";
+import Button from "../components/Button";
+import Input from "../components/Input";
+import DismissKeyboard from "../components/DismissKeyboard";
+import SearchBar from "../components/SearchBar";
 
 class CreateEvent extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      eventName: "",
+      message: "",
+      search: ""
+    };
   }
-  state = {
-    eventName: "",
-    message: "",
-    searchText: ""
+
+  // dont really need the icon as i can go back from the stack
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: "Create Event",
+      headerRight: (
+        <IconButton
+          borderStyle={{ margin: 30 }}
+          source={require("../assets/icon.png")}
+          onPress={() => navigation.goBack()}
+        />
+      )
+    };
+  };
+
+  onChangeText = (value, text) => {
+    this.setState({ [value]: text });
   };
 
   createEvent = () => {
@@ -28,97 +41,90 @@ class CreateEvent extends React.Component {
   };
 
   render() {
-    const { eventName, message, searchText } = this.state;
+    const { eventName, message, search } = this.state;
 
     return (
-      <View style={styles.mainContainer}>
-        <View style={styles.container}>
-          {/* event details */}
-          <View style={styles.detailContainer}>
-            <View style={styles.eventInputStyle}>
-              <TextInput
+      <DismissKeyboard>
+        <View style={styles.mainContainer}>
+          <View style={styles.centerContentContainer}>
+            <View style={styles.detailContainer}>
+              <Input
                 placeholder="Enter Event Name"
-                onChangeText={text => this.setState({ eventName: text })}
                 value={eventName}
+                stateToBeChanged="eventName"
+                onChangeText={this.onChangeText}
               />
-            </View>
-            <View style={styles.messageInputStyle}>
-              <TextInput
-                multiline={true}
-                scrollEnabled={true}
-                onChangeText={text => this.setState({ message: text })}
-                value={message}
+              <Input
+                borderStyle={styles.messageInputStyle}
                 placeholder="Enter Message"
+                value={message}
+                stateToBeChanged="message"
+                onChangeText={this.onChangeText}
+                scrollEnabled={true}
+                multiline={true}
               />
-            </View>
-            <View style={styles.eventInputStyle}>
-              <TextInput
+
+              <SearchBar
+                source={require("../assets/icon.png")}
+                value={search}
                 placeholder="Search"
-                onChangeText={text => this.setState({ searchText: text })}
-                value={searchText}
+                stateToBeChanged="search"
+                onChangeText={this.onChangeText}
               />
             </View>
+
+            {/* Keep this but look into contact list */}
+            <View style={styles.scrollContainer}>
+              <ContactList />
+            </View>
+            {/*  */}
           </View>
-          {/* scroll list */}
-          <View style={styles.scrollContainer}>
-            <ContactList />
-          </View>
-        </View>
-        <View style={styles.detailContainer}>
-          <View style={styles.buttonStyle}>
-            <Button
-              title="Create Event"
-              onPress={this.createEvent}
-              color="white"
-            />
+          <View style={styles.buttonContainer}>
+            <Button title="Create Event" onPress={this.createEvent} />
           </View>
         </View>
-      </View>
+      </DismissKeyboard>
     );
   }
 }
 
 const styles = StyleSheet.create({
   mainContainer: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "black"
   },
-  container: {
+  centerContentContainer: {
     flex: 8
   },
   scrollContainer: {
-    flex: 1,
-    backgroundColor: "black"
+    flex: 1
   },
   detailContainer: {
     flex: 1,
     justifyContent: "space-evenly",
-    alignItems: "center",
-    backgroundColor: "yellow"
+    alignItems: "center"
+    // backgroundColor: "red"
   },
   eventInputStyle: {
     borderRadius: 10,
     width: 350,
     height: 60,
-    padding: 10,
-    justifyContent: "center",
-    backgroundColor: "red"
+    padding: 10
+    // justifyContent: "center"
+    // backgroundColor: "red"
   },
   messageInputStyle: {
     borderRadius: 10,
     padding: 10,
-    width: 350,
+    width: "80%",
     height: 150,
-    backgroundColor: "red"
+    backgroundColor: "#005FE1"
   },
-
-  buttonStyle: {
-    // marginLeft: "10%",
-    // marginRight: "10%",
-    width: 300,
-    height: 60,
-    borderRadius: 10,
+  buttonContainer: {
+    flex: 1,
     justifyContent: "center",
-    backgroundColor: "blue"
+    alignItems: "center",
+    backgroundColor: "#005FE1"
   }
 });
 

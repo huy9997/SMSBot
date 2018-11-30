@@ -54,7 +54,6 @@ class Login extends React.Component {
             >
               <Input
                 placeholder="Enter Email Address"
-                placeholderTextColor="#cdcdcd"
                 value={email}
                 onChangeText={this.onChangeText}
                 stateToBeChanged="email"
@@ -63,7 +62,6 @@ class Login extends React.Component {
               />
               <Input
                 placeholder="Enter Password"
-                placeholderTextColor="#cdcdcd"
                 value={password}
                 onChangeText={this.onChangeText}
                 stateToBeChanged="password"

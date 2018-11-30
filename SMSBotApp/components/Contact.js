@@ -8,6 +8,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import TextBox from "../components/TextBox";
+import IconButton from "../components/IconButton";
 
 class Contact extends React.Component {
   constructor(props) {
@@ -45,6 +46,7 @@ class Contact extends React.Component {
             />
           )}
         </TouchableOpacity>
+        {/* <IconButton /> */}
         <View style={styles.contactInformationContainer}>
           <TextBox text={name} />
           <TextBox text={phoneNumber} />
@@ -57,18 +59,16 @@ class Contact extends React.Component {
 const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: "row",
-    justifyContent: "flex-start",
-    backgroundColor: "black"
+    justifyContent: "flex-start"
+    // backgroundColor: "blue"
   },
   iconContainer: {
-    justifyContent: "center",
     marginLeft: "10%",
-    marginRight: "10%",
-    backgroundColor: "red"
+    marginRight: "10%"
   },
   contactInformationContainer: {
-    alignItems: "flex-start",
-    backgroundColor: "blue"
+    alignItems: "flex-start"
+    // backgroundColor: "blue"
   }
 });
 

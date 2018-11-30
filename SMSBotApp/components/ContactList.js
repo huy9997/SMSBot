@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
+import { ScrollView } from "react-native";
 import Contact from "./Contact";
 
 class ContactList extends Component {
   constructor(props) {
     super(props);
-  }
 
-  state = {
-    contacts: [],
-    isLoading: true
-  };
+    this.state = {
+      contacts: [],
+      isLoading: true
+    };
+  }
 
   async componentDidMount() {
     this.setState({ isLoading: true });
