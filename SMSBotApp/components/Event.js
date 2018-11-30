@@ -1,23 +1,24 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 
 const Event = props => {
+  const { borderStyle, textStyle, text } = props;
+
   return (
-    <TouchableOpacity style={styles.mainContainer}>
-      <Text style={styles.textStyle}>{props.text}</Text>
+    <TouchableOpacity style={borderStyle}>
+      <Text style={textStyle}>{text}</Text>
     </TouchableOpacity>
   );
 };
 
-const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
+Event.defaultProps = {
+  borderStyle: {
     justifyContent: "center",
     alignItems: "center",
     height: 125,
     width: "90%",
-    marginTop: 5,
-    marginBottom: 5,
+    marginTop: 10,
+    marginBottom: 10,
     borderRadius: 10,
     backgroundColor: "#0C72FF"
   },
@@ -27,7 +28,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     width: "90%"
-  }
-});
+  },
+  text: "Use 'text' prop to change text"
+};
 
 export default Event;

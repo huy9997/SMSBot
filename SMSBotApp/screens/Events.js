@@ -17,10 +17,7 @@ class Events extends React.Component {
   render() {
     return (
       <View style={styles.mainContainer}>
-        {/* scrollview of events */}
         <EventsList />
-        {/* scrollview of events */}
-
         <IconButton
           source={require("../assets/icon.png")}
           onPress={() => this.createEvent()}
