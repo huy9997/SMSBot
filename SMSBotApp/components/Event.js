@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 const Event = props => {
   return (
     <TouchableOpacity style={styles.mainContainer}>
-      <Text>{props.text}</Text>
+      <Text style={styles.textStyle}>{props.text}</Text>
     </TouchableOpacity>
   );
 };
@@ -19,7 +19,14 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginBottom: 5,
     borderRadius: 10,
-    backgroundColor: "blue"
+    backgroundColor: "#0C72FF"
+  },
+  textStyle: {
+    fontSize: 20,
+    textAlign: "center",
+    fontWeight: "bold",
+    color: "white",
+    width: "90%"
   }
 });
 

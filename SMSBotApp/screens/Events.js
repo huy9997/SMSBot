@@ -1,30 +1,30 @@
 import React from "react";
 
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  Button,
-  TextInput,
-  KeyboardAvoidingView,
-  ScrollView,
-  TouchableOpacity
-} from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import EventsList from "../components/EventList";
+import IconButton from "../components/IconButton";
 
 class Events extends React.Component {
+  static navigationOptions = {
+    title: "Events"
+  };
+
+  createEvent = () => {
+    console.log("Create event");
+  };
+
   render() {
     return (
       <View style={styles.mainContainer}>
+        {/* scrollview of events */}
         <EventsList />
-        <TouchableOpacity style={styles.buttonContainer}>
-          <Image
-            style={{ height: 25, width: 25 }}
-            source={require("../assets/icon.png")}
-          />
-        </TouchableOpacity>
+        {/* scrollview of events */}
+
+        <IconButton
+          source={require("../assets/icon.png")}
+          onPress={() => this.createEvent()}
+        />
       </View>
     );
   }
@@ -32,21 +32,8 @@ class Events extends React.Component {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    // flex: 1,
-    // justifyContent: "center",
-    // alignItems: "center",
+    flex: 1,
     backgroundColor: "black"
-  },
-  buttonContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: "red",
-    position: "absolute",
-    bottom: 25,
-    right: 25
   }
 });
 

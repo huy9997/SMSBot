@@ -1,18 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 
-import { View, StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 
 import Event from "./Event";
+
+// error handling in fetch
 
 class EventList extends React.Component {
   constructor(props) {
     super(props);
-  }
 
-  state = {
-    events: [],
-    isLoading: true
-  };
+    this.state = {
+      events: [],
+      isLoading: true
+    };
+  }
 
   async componentDidMount() {
     this.setState({ isLoading: true });
@@ -46,8 +48,7 @@ class EventList extends React.Component {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    width: "100%",
-    backgroundColor: "green"
+    width: "100%"
   },
   scrollViewInnerStyle: {
     alignItems: "center"
