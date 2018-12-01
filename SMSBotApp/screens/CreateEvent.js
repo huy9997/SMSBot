@@ -75,7 +75,11 @@ class CreateEvent extends React.Component {
 
             {/* Keep this but look into contact list */}
             <View style={styles.scrollContainer}>
+              {/* <ScrollView style={styles.scrollContainer}>
+              <Text>Hello</Text>
+            </ScrollView> */}
               <ContactList />
+              {/* <EventList /> */}
             </View>
             {/*  */}
           </View>
@@ -96,22 +100,10 @@ const styles = StyleSheet.create({
   centerContentContainer: {
     flex: 8
   },
-  scrollContainer: {
-    flex: 1
-  },
   detailContainer: {
     flex: 1,
     justifyContent: "space-evenly",
     alignItems: "center"
-    // backgroundColor: "red"
-  },
-  eventInputStyle: {
-    borderRadius: 10,
-    width: 350,
-    height: 60,
-    padding: 10
-    // justifyContent: "center"
-    // backgroundColor: "red"
   },
   messageInputStyle: {
     borderRadius: 10,
@@ -119,6 +111,9 @@ const styles = StyleSheet.create({
     width: "80%",
     height: 150,
     backgroundColor: "#005FE1"
+  },
+  scrollContainer: {
+    flex: 1
   },
   buttonContainer: {
     flex: 1,

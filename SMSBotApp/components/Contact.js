@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  Image,
-  TouchableOpacity
-} from "react-native";
-import TextBox from "../components/TextBox";
-import IconButton from "../components/IconButton";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 
 class Contact extends React.Component {
   constructor(props) {
@@ -26,50 +17,49 @@ class Contact extends React.Component {
   };
 
   render() {
-    const { name, phoneNumber } = this.props;
+    const { name, phoneNumber, borderStyle, iconStyle, textStyle } = this.props;
+    const { isChecked } = this.state;
 
     return (
-      <View style={styles.mainContainer}>
-        <TouchableOpacity
-          style={styles.iconContainer}
-          onPress={this.reverseIsChecked}
-        >
-          {this.state.isChecked ? (
-            <Image
-              source={require("../assets/icon.png")}
-              style={{ width: 50, height: 50 }}
-            />
-          ) : (
-            <Image
-              source={require("../assets/splash.png")}
-              style={{ width: 30, height: 30 }}
-            />
-          )}
-        </TouchableOpacity>
-        {/* <IconButton /> */}
+      <TouchableOpacity onPress={this.reverseIsChecked} style={borderStyle}>
+        {isChecked ? (
+          <Image style={iconStyle} source={require("../assets/icon.png")} />
+        ) : (
+          <Image style={iconStyle} source={require("../assets/splash.png")} />
+        )}
         <View style={styles.contactInformationContainer}>
-          <TextBox text={name} />
-          <TextBox text={phoneNumber} />
+          <Text style={textStyle}>{name}</Text>
+          <Text style={textStyle}>{phoneNumber}</Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  mainContainer: {
-    flexDirection: "row",
-    justifyContent: "flex-start"
-    // backgroundColor: "blue"
-  },
-  iconContainer: {
-    marginLeft: "10%",
-    marginRight: "10%"
-  },
   contactInformationContainer: {
     alignItems: "flex-start"
-    // backgroundColor: "blue"
   }
 });
+
+Contact.defaultProps = {
+  borderStyle: {
+    flexDirection: "row",
+    alignItems: "center",
+    height: 100,
+    width: "100%",
+    paddingLeft: 25
+  },
+  iconStyle: {
+    height: 30,
+    width: 30,
+    margin: 15
+  },
+  textStyle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "white"
+  }
+};
 
 export default Contact;

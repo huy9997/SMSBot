@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { ScrollView } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import Contact from "./Contact";
+import Event from "./Event";
 
 class ContactList extends Component {
   constructor(props) {
@@ -24,7 +25,10 @@ class ContactList extends Component {
     const { contacts, isLoading } = this.state;
 
     return (
-      <ScrollView>
+      <ScrollView
+        style={styles.mainContainer}
+        contentContainerStyle={styles.scrollViewInnerStyle}
+      >
         {isLoading ? (
           <Contact phoneNumber="(415) 123-1234" name="nick" />
         ) : (
@@ -44,5 +48,14 @@ class ContactList extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    width: "100%"
+  },
+  scrollViewInnerStyle: {
+    alignItems: "center"
+  }
+});
 
 export default ContactList;
