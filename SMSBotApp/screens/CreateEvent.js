@@ -14,8 +14,19 @@ class CreateEvent extends React.Component {
     this.state = {
       eventName: "",
       message: "",
-      search: ""
+      search: "",
+      contacts: [],
+      isLoading: true
     };
+  }
+
+  // error checking
+  async componentDidMount() {
+    this.setState({ isLoading: true });
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+
+    const responseJson = await response.json();
+    this.setState({ contacts: responseJson, isLoading: false });
   }
 
   // dont really need the icon as i can go back from the stack
@@ -41,7 +52,16 @@ class CreateEvent extends React.Component {
   };
 
   render() {
-    const { eventName, message, search } = this.state;
+    const { eventName, message, search, contacts, isLoading } = this.state;
+
+    // filter search need to move to seperate function
+    const contactsToDisplay = contacts.filter(contact => {
+      const contactName = contact.name.toLowerCase();
+      const searchText = search.toLowerCase();
+      return contactName.includes(searchText);
+    });
+
+    // console.log(contactsToDisplay);
 
     return (
       <DismissKeyboard>
@@ -78,7 +98,7 @@ class CreateEvent extends React.Component {
               {/* <ScrollView style={styles.scrollContainer}>
               <Text>Hello</Text>
             </ScrollView> */}
-              <ContactList />
+              <ContactList contacts={contactsToDisplay} isLoading={isLoading} />
               {/* <EventList /> */}
             </View>
             {/*  */}

@@ -1,28 +1,28 @@
 import React, { Component } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import Contact from "./Contact";
-import Event from "./Event";
 
+// see if i should make this into a functional component
 class ContactList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      contacts: [],
-      isLoading: true
-    };
+    // this.state = {
+    //   contacts: [],
+    //   isLoading: true
+    // };
   }
 
-  async componentDidMount() {
-    this.setState({ isLoading: true });
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  // async componentDidMount() {
+  //   this.setState({ isLoading: true });
+  //   const response = await fetch("https://jsonplaceholder.typicode.com/users");
 
-    const responseJson = await response.json();
-    this.setState({ contacts: responseJson, isLoading: false });
-  }
+  //   const responseJson = await response.json();
+  //   this.setState({ contacts: responseJson, isLoading: false });
+  // }
 
   render() {
-    const { contacts, isLoading } = this.state;
+    const { contacts, isLoading } = this.props;
 
     return (
       <ScrollView
