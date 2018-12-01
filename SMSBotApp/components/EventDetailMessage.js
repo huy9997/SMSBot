@@ -5,21 +5,21 @@ class EventDetailMessage extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      status: "unsure"
-    };
+    // this.state = {
+    //   status: "unsure"
+    // };
   }
 
   // conditional render on icon depending on which of three statuses
   // going, not going, unsure
   render() {
-    const { status } = this.state;
+    const { initials, recentMessage, status, currentDate } = this.props;
 
     return (
       <TouchableOpacity style={styles.mainContainer}>
         {/* icon */}
         <View style={styles.initialLabelStyle}>
-          <Text style={styles.textStyle}>NS</Text>
+          <Text style={styles.textStyle}>{initials}</Text>
         </View>
 
         {/* message */}
@@ -29,17 +29,19 @@ class EventDetailMessage extends Component {
             numberOfLines={3}
             ellipsizeMode={"tail"}
           >
-            Yeah sure, I can make it to the event. I'll bring some fried chicken
-            and beer.
+            {recentMessage}
           </Text>
         </View>
         {/* symbol */}
+        {/* conditional render later on */}
         <Image
           source={require("../assets/icon.png")}
           style={styles.statusIconStyle}
         />
         {/* date */}
-        <Text style={styles.textStyle}>11/23/2018</Text>
+        <View style={styles.dateContainer}>
+          <Text style={styles.textStyle}>{currentDate}</Text>
+        </View>
       </TouchableOpacity>
     );
   }
@@ -76,7 +78,18 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "bold",
     color: "white"
+  },
+  dateContainer: {
+    width: 85
   }
 });
+
+EventDetailMessage.defaultProps = {
+  initials: "NS",
+  recentMessage:
+    "Yeah sure, I can make it to the event. I'll bring some fried chicken and beer.",
+  status: "going",
+  currentDate: "11/23/2018"
+};
 
 export default EventDetailMessage;
