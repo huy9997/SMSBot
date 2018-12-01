@@ -5,6 +5,7 @@ import LoginScreen from "../screens/Login";
 import SignUpScreen from "../screens/SignUp";
 import EventsScreen from "../screens/Events";
 import EventDetailsScreen from "../screens/EventDetails";
+import MessagesScreen from "../screens/Messages";
 
 const IntroStack = createStackNavigator(
   {
@@ -13,7 +14,8 @@ const IntroStack = createStackNavigator(
     SignUp: SignUpScreen,
     Events: EventsScreen,
     CreateEvent: CreateEventScreen,
-    EventDetails: EventDetailsScreen
+    EventDetails: EventDetailsScreen,
+    Messages: MessagesScreen
   },
   {
     initialRouteName: "Introduction",
@@ -21,7 +23,8 @@ const IntroStack = createStackNavigator(
     // initialRouteName: "SignUp",
     // initialRouteName: "Events",
     // initialRouteName: "CreateEvent",
-    initialRouteName: "EventDetails",
+    // initialRouteName: "EventDetails",
+    // initialRouteName: "Messages",
 
     defaultNavigationOptions: {
       title: "SMS Bot",

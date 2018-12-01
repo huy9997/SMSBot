@@ -1,11 +1,15 @@
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
+import { withNavigation } from "react-navigation";
 
 const Event = props => {
-  const { borderStyle, textStyle, text } = props;
+  const { borderStyle, textStyle, text, navigation } = props;
 
   return (
-    <TouchableOpacity style={borderStyle}>
+    <TouchableOpacity
+      style={borderStyle}
+      onPress={() => navigation.navigate("EventDetails")}
+    >
       <Text style={textStyle}>{text}</Text>
     </TouchableOpacity>
   );
@@ -32,4 +36,4 @@ Event.defaultProps = {
   text: "Use 'text' prop to change text"
 };
 
-export default Event;
+export default withNavigation(Event);

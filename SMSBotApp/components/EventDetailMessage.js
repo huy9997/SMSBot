@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, StyleSheet, TouchableOpacity, Text, Image } from "react-native";
+import { withNavigation } from "react-navigation";
 
 class EventDetailMessage extends Component {
   constructor(props) {
@@ -13,10 +14,19 @@ class EventDetailMessage extends Component {
   // conditional render on icon depending on which of three statuses
   // going, not going, unsure
   render() {
-    const { initials, recentMessage, status, currentDate } = this.props;
+    const {
+      initials,
+      recentMessage,
+      status,
+      currentDate,
+      navigation
+    } = this.props;
 
     return (
-      <TouchableOpacity style={styles.mainContainer}>
+      <TouchableOpacity
+        style={styles.mainContainer}
+        onPress={() => navigation.navigate("Messages")}
+      >
         {/* icon */}
         <View style={styles.initialLabelStyle}>
           <Text style={styles.textStyle}>{initials}</Text>
@@ -92,4 +102,4 @@ EventDetailMessage.defaultProps = {
   currentDate: "11/23/2018"
 };
 
-export default EventDetailMessage;
+export default withNavigation(EventDetailMessage);
