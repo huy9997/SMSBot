@@ -18,7 +18,7 @@ class EventList extends React.Component {
 
   async componentDidMount() {
     this.setState({ isLoading: true });
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
 
     const responseJson = await response.json();
     this.setState({ events: responseJson, isLoading: false });
@@ -37,7 +37,7 @@ class EventList extends React.Component {
         ) : (
           <React.Fragment>
             {events.map(event => {
-              return <Event key={event.id} text={event.title} />;
+              return <Event key={event.id} text={event.name} />;
             })}
           </React.Fragment>
         )}

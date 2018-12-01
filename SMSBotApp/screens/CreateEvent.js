@@ -95,13 +95,8 @@ class CreateEvent extends React.Component {
 
             {/* Keep this but look into contact list */}
             <View style={styles.scrollContainer}>
-              {/* <ScrollView style={styles.scrollContainer}>
-              <Text>Hello</Text>
-            </ScrollView> */}
               <ContactList contacts={contactsToDisplay} isLoading={isLoading} />
-              {/* <EventList /> */}
             </View>
-            {/*  */}
           </View>
           <View style={styles.buttonContainer}>
             <Button title="Create Event" onPress={this.createEvent} />

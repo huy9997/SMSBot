@@ -31,7 +31,7 @@ class Login extends React.Component {
   };
 
   login = () => {
-    return this.props.navigation.navigate("CreateEvent");
+    return this.props.navigation.navigate("Events");
   };
 
   onChangeText = (value, text) => {
