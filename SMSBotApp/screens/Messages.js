@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import IconButton from "../components/IconButton";
+import MessagesList from "../components/MessagesList";
 
 class Messages extends Component {
   constructor(props) {
@@ -22,10 +23,14 @@ class Messages extends Component {
       )
     };
   };
+
   render() {
     return (
       <View style={styles.mainContainer}>
-        <View />
+        <View style={{ flex: 7 }}>
+          <MessagesList />
+        </View>
+        <View style={{ flex: 1, backgroundColor: "red" }} />
       </View>
     );
   }

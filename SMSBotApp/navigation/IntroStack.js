@@ -24,7 +24,7 @@ const IntroStack = createStackNavigator(
     // initialRouteName: "Events",
     // initialRouteName: "CreateEvent",
     // initialRouteName: "EventDetails",
-    // initialRouteName: "Messages",
+    initialRouteName: "Messages",
 
     defaultNavigationOptions: {
       title: "SMS Bot",
