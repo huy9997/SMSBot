@@ -16,7 +16,9 @@ class Messages extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      message: ""
+    };
   }
 
   // make this dynamic
@@ -32,29 +34,49 @@ class Messages extends Component {
     };
   };
 
+  onChangeText = (value, text) => {
+    this.setState({ [value]: text });
+  };
+
   render() {
+    const { message } = this.state;
+
+    console.log(message);
+
     return (
       <DismissKeyboard>
         <View style={styles.mainContainer}>
           <KeyboardAvoidingView
             style={{ flex: 1 }}
             behavior="padding"
-            keyboardVerticalOffset={90}
+            keyboardVerticalOffset={85}
           >
             <View style={styles.messagesContainer}>
               <MessagesList />
             </View>
+
+            {/* reply section */}
             <View style={styles.replyContainer}>
               <IconButton
                 borderStyle={styles.buttonBorder}
                 source={require("../assets/icon.png")}
               />
-              <Input borderStyle={styles.messageInputBorder} />
+              <Input
+                borderStyle={styles.messageInputBorder}
+                inputStyle={styles.inputStyle}
+                placeholder="Message Contact Name"
+                value={message}
+                stateToBeChanged="message"
+                onChangeText={this.onChangeText}
+                multiline={true}
+                scrollEnabled={true}
+              />
               <IconButton
                 borderStyle={styles.buttonBorder}
                 source={require("../assets/icon.png")}
               />
             </View>
+            {/* reply section */}
           </KeyboardAvoidingView>
         </View>
       </DismissKeyboard>
@@ -85,7 +107,14 @@ const styles = StyleSheet.create({
   },
   messageInputBorder: {
     flex: 5,
-    height: "100%"
+    justifyContent: "center"
+    // backgroundColor: "red"
+  },
+  inputStyle: {
+    // height: "100%",
+    // width: "100%",
+    color: "white",
+    fontSize: 20
   }
 });
 

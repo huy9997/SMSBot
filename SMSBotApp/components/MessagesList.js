@@ -29,9 +29,9 @@ class MessagesList extends Component {
       <ScrollView
         style={styles.mainContainer}
         contentContainerStyle={styles.scrollViewInnerStyle}
-        ref={ref => (this.scrollView = ref)}
+        ref={scrollView => (this.scrollView = scrollView)}
         onContentSizeChange={() => {
-          this.scrollView.scrollToEnd({ animated: true });
+          this.scrollView.scrollToEnd({ animated: false });
         }}
       >
         {isLoading ? (
