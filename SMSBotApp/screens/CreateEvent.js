@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, KeyboardAvoidingView } from "react-native";
 import ContactList from "../components/ContactList";
 import IconButton from "../components/IconButton";
 import Button from "../components/Button";
@@ -66,7 +66,10 @@ class CreateEvent extends React.Component {
     return (
       <DismissKeyboard>
         <View style={styles.mainContainer}>
-          <View style={styles.centerContentContainer}>
+          <KeyboardAvoidingView
+            style={styles.centerContentContainer}
+            behavior="padding"
+          >
             <View style={styles.detailContainer}>
               <Input
                 placeholder="Enter Event Name"
@@ -93,11 +96,10 @@ class CreateEvent extends React.Component {
               />
             </View>
 
-            {/* Keep this but look into contact list */}
             <View style={styles.scrollContainer}>
               <ContactList contacts={contactsToDisplay} isLoading={isLoading} />
             </View>
-          </View>
+          </KeyboardAvoidingView>
           <View style={styles.buttonContainer}>
             <Button title="Create Event" onPress={this.createEvent} />
           </View>
