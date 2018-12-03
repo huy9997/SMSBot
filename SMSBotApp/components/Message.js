@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Text } from "react-native";
 
-class Message extends Component {
+class Message extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -42,10 +42,6 @@ Message.defaultProps = {
 };
 
 const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    backgroundColor: "black"
-  },
   messageSenderContainer: {
     justifyContent: "flex-start",
     alignItems: "flex-start",
@@ -78,6 +74,8 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
     alignSelf: "center"
   }
 });

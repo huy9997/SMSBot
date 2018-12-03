@@ -1,16 +1,8 @@
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  KeyboardAvoidingView
-} from "react-native";
-
+import { View, StyleSheet, KeyboardAvoidingView } from "react-native";
 import IconButton from "../components/IconButton";
 import MessagesList from "../components/MessagesList";
 import Input from "../components/Input";
-import DismissKeyboard from "../components/DismissKeyboard";
 
 class Messages extends Component {
   constructor(props) {
@@ -41,45 +33,40 @@ class Messages extends Component {
   render() {
     const { message } = this.state;
 
-    console.log(message);
-
     return (
-      <DismissKeyboard>
-        <View style={styles.mainContainer}>
-          <KeyboardAvoidingView
-            style={{ flex: 1 }}
-            behavior="padding"
-            keyboardVerticalOffset={85}
-          >
-            <View style={styles.messagesContainer}>
-              <MessagesList />
-            </View>
-
-            {/* reply section */}
-            <View style={styles.replyContainer}>
-              <IconButton
-                borderStyle={styles.buttonBorder}
-                source={require("../assets/icon.png")}
-              />
-              <Input
-                borderStyle={styles.messageInputBorder}
-                inputStyle={styles.inputStyle}
-                placeholder="Message Contact Name"
-                value={message}
-                stateToBeChanged="message"
-                onChangeText={this.onChangeText}
-                multiline={true}
-                scrollEnabled={true}
-              />
-              <IconButton
-                borderStyle={styles.buttonBorder}
-                source={require("../assets/icon.png")}
-              />
-            </View>
-            {/* reply section */}
-          </KeyboardAvoidingView>
+      <View style={styles.mainContainer}>
+        <View style={styles.messagesContainer}>
+          <MessagesList />
         </View>
-      </DismissKeyboard>
+        <KeyboardAvoidingView
+          style={styles.replyContainer}
+          behavior="padding"
+          keyboardVerticalOffset={100}
+        >
+          {/* reply section */}
+          {/* <View style={styles.replyContainer}> */}
+          <IconButton
+            borderStyle={styles.buttonBorder}
+            source={require("../assets/icon.png")}
+          />
+          <Input
+            borderStyle={styles.messageInputBorder}
+            inputStyle={styles.inputStyle}
+            placeholder="Message Contact Name"
+            value={message}
+            stateToBeChanged="message"
+            onChangeText={this.onChangeText}
+            multiline={true}
+            scrollEnabled={true}
+          />
+          <IconButton
+            borderStyle={styles.buttonBorder}
+            source={require("../assets/icon.png")}
+          />
+          {/* </View> */}
+          {/* reply section */}
+        </KeyboardAvoidingView>
+      </View>
     );
   }
 }
@@ -106,13 +93,9 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   messageInputBorder: {
-    flex: 5,
-    justifyContent: "center"
-    // backgroundColor: "red"
+    flex: 5
   },
   inputStyle: {
-    // height: "100%",
-    // width: "100%",
     color: "white",
     fontSize: 20
   }

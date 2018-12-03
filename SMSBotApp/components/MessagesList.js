@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, ScrollView, StyleSheet } from "react-native";
+import { Text, StyleSheet, FlatList } from "react-native";
 
 import Message from "../components/Message";
 
@@ -19,55 +19,40 @@ class MessagesList extends Component {
     );
 
     const responseJson = await response.json();
-    this.setState({ messages: responseJson, isLoading: false });
+    this.setState({ messages: responseJson.reverse(), isLoading: false });
   }
+
+  renderItem = ({ item }) => {
+    if (item.id % 2 == 0) {
+      return <Message message={item.body} isReceiver={false} />;
+    } else {
+      return <Message message={item.body} isReceiver={true} />;
+    }
+  };
+
+  keyExtractor = message => {
+    return `${message.id}`;
+  };
 
   render() {
     const { messages, isLoading } = this.state;
 
     return (
-      <ScrollView
+      <FlatList
         style={styles.mainContainer}
-        contentContainerStyle={styles.scrollViewInnerStyle}
-        ref={scrollView => (this.scrollView = scrollView)}
-        onContentSizeChange={() => {
-          this.scrollView.scrollToEnd({ animated: false });
-        }}
-      >
-        {isLoading ? (
-          <Message />
-        ) : (
-          messages.map(message => {
-            if (message.id % 2 == 0) {
-              return (
-                <Message
-                  key={message.id}
-                  message={message.body}
-                  isReceiver={false}
-                />
-              );
-            } else {
-              return (
-                <Message
-                  key={message.id}
-                  message={message.body}
-                  isReceiver={true}
-                />
-              );
-            }
-          })
-        )}
-      </ScrollView>
+        data={messages}
+        extraData={this.state}
+        keyExtractor={this.keyExtractor}
+        renderItem={this.renderItem}
+        inverted={true}
+      />
     );
   }
 }
 
 const styles = StyleSheet.create({
   mainContainer: {
-    width: "100%"
-  },
-  scrollViewInnerStyle: {
-    alignItems: "center"
+    flex: 1
   }
 });
 

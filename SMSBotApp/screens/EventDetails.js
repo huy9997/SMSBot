@@ -44,13 +44,7 @@ class EventDetails extends Component {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
               dignissimos porro reiciendis voluptatem vero at neque maxime
               ratione, sequi enim possimus error accusantium et. Non vel eum
-              earum magnam amet! Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Non dignissimos porro reiciendis voluptatem vero
-              at neque maxime ratione, sequi enim possimus error accusantium et.
-              Non vel eum earum magnam amet! Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Non dignissimos porro reiciendis
-              voluptatem vero at neque maxime ratione, sequi enim possimus error
-              accusantium et. Non vel eum earum magnam amet!
+              earum magnam amet!
             </Text>
           </View>
 
