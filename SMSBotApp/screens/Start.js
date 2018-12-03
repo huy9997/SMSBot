@@ -3,14 +3,6 @@ import { StyleSheet, View, Text, Image } from "react-native";
 import Footer from "../components/layouts/Footer";
 import Button from "../components/Button";
 
-login = navigation => {
-  return navigation.navigate("Login");
-};
-
-signUp = navigation => {
-  return navigation.navigate("SignUp");
-};
-
 const Start = props => {
   const { navigation } = props;
 
@@ -25,8 +17,11 @@ const Start = props => {
           <Text style={styles.textStyle}>SMS Bot</Text>
         </View>
         <View style={styles.buttonsContainer}>
-          <Button title="Login" onPress={() => login(navigation)} />
-          <Button title="Sign Up" onPress={() => signUp(navigation)} />
+          <Button title="Login" onPress={() => navigation.navigate("Login")} />
+          <Button
+            title="Sign Up"
+            onPress={() => navigation.navigate("SignUp")}
+          />
         </View>
       </View>
       <Footer style={styles.mainContainer} title />
