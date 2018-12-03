@@ -15,6 +15,7 @@ class EventDetailMessage extends Component {
   // going, not going, unsure
   render() {
     const {
+      contactName,
       initials,
       recentMessage,
       status,
@@ -25,7 +26,7 @@ class EventDetailMessage extends Component {
     return (
       <TouchableOpacity
         style={styles.mainContainer}
-        onPress={() => navigation.navigate("Messages")}
+        onPress={() => navigation.navigate("Messages", { contactName })}
       >
         {/* icon */}
         <View style={styles.initialLabelStyle}>
@@ -34,9 +35,10 @@ class EventDetailMessage extends Component {
 
         {/* message */}
         <View style={styles.textBorder}>
+          <Text style={styles.nameTextStyle}>{contactName}</Text>
           <Text
             style={styles.textStyle}
-            numberOfLines={3}
+            numberOfLines={2}
             ellipsizeMode={"tail"}
           >
             {recentMessage}
@@ -84,8 +86,13 @@ const styles = StyleSheet.create({
     height: 40,
     width: 40
   },
-  textStyle: {
+  nameTextStyle: {
     fontSize: 15,
+    fontWeight: "bold",
+    color: "white"
+  },
+  textStyle: {
+    fontSize: 12,
     fontWeight: "bold",
     color: "white"
   },

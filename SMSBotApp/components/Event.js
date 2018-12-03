@@ -3,14 +3,14 @@ import { Text, TouchableOpacity } from "react-native";
 import { withNavigation } from "react-navigation";
 
 const Event = props => {
-  const { borderStyle, textStyle, text, navigation } = props;
+  const { borderStyle, textStyle, eventName, navigation } = props;
 
   return (
     <TouchableOpacity
       style={borderStyle}
-      onPress={() => navigation.navigate("EventDetails")}
+      onPress={() => navigation.navigate("EventDetails", { eventName })}
     >
-      <Text style={textStyle}>{text}</Text>
+      <Text style={textStyle}>{eventName}</Text>
     </TouchableOpacity>
   );
 };
@@ -33,7 +33,7 @@ Event.defaultProps = {
     color: "white",
     width: "90%"
   },
-  text: "Use 'text' prop to change text"
+  eventName: "Use 'text' prop to change text"
 };
 
 export default withNavigation(Event);

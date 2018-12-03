@@ -34,6 +34,7 @@ class EventDetailMessagesList extends Component {
             return (
               <EventDetailMessage
                 key={message.id}
+                contactName={message.name}
                 initials={message.id}
                 recentMessage={message.company.catchPhrase}
                 status={message.username}

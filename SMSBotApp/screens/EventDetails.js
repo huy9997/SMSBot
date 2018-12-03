@@ -18,8 +18,10 @@ class EventDetails extends Component {
 
   // make this dynamic
   static navigationOptions = ({ navigation }) => {
+    const { eventName } = navigation.state.params;
+
     return {
-      headerTitle: "Event Name",
+      headerTitle: eventName,
       headerRight: (
         <IconButton
           borderStyle={{ margin: 30 }}

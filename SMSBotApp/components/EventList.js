@@ -33,11 +33,11 @@ class EventList extends React.Component {
         contentContainerStyle={styles.scrollViewInnerStyle}
       >
         {isLoading ? (
-          <Event text="not loaded" />
+          <Event eventName="not loaded" />
         ) : (
           <React.Fragment>
             {events.map(event => {
-              return <Event key={event.id} text={event.name} />;
+              return <Event key={event.id} eventName={event.name} />;
             })}
           </React.Fragment>
         )}

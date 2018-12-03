@@ -15,8 +15,10 @@ class Messages extends Component {
 
   // make this dynamic
   static navigationOptions = ({ navigation }) => {
+    const { contactName } = navigation.state.params;
+
     return {
-      headerTitle: "Contact Name",
+      headerTitle: contactName,
       headerRight: (
         <IconButton
           borderStyle={{ margin: 30 }}
