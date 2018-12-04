@@ -21,7 +21,7 @@ const IntroStack = createStackNavigator(
     initialRouteName: "Introduction",
     // initialRouteName: "Login",
     // initialRouteName: "SignUp",
-    // initialRouteName: "Events",
+    initialRouteName: "Events",
     // initialRouteName: "CreateEvent",
     // initialRouteName: "EventDetails",
     // initialRouteName: "Messages",

@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 
-class Contact extends React.Component {
+class Contact extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -17,7 +17,14 @@ class Contact extends React.Component {
   };
 
   render() {
-    const { name, phoneNumber, borderStyle, iconStyle, textStyle } = this.props;
+    const {
+      name,
+      phoneNumberLabel,
+      phoneNumber,
+      borderStyle,
+      iconStyle,
+      textStyle
+    } = this.props;
     const { isChecked } = this.state;
 
     return (
@@ -27,9 +34,12 @@ class Contact extends React.Component {
         ) : (
           <Image style={iconStyle} source={require("../assets/splash.png")} />
         )}
-        <View style={styles.contactInformationContainer}>
+        <View>
           <Text style={textStyle}>{name}</Text>
-          <Text style={textStyle}>{phoneNumber}</Text>
+          <View style={styles.phoneNumberContainer}>
+            <Text style={textStyle}>{phoneNumberLabel}</Text>
+            <Text style={textStyle}>{phoneNumber}</Text>
+          </View>
         </View>
       </TouchableOpacity>
     );
@@ -37,8 +47,8 @@ class Contact extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  contactInformationContainer: {
-    alignItems: "flex-start"
+  phoneNumberContainer: {
+    flexDirection: "row"
   }
 });
 
@@ -57,6 +67,7 @@ Contact.defaultProps = {
   },
   textStyle: {
     fontSize: 20,
+    margin: 2,
     fontWeight: "bold",
     color: "white"
   }

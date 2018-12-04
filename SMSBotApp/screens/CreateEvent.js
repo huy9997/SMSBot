@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 import DismissKeyboard from "../components/DismissKeyboard";
 import SearchBar from "../components/SearchBar";
+import { Consumer } from "../context/Context";
 
 class CreateEvent extends React.Component {
   constructor(props) {
@@ -14,19 +15,8 @@ class CreateEvent extends React.Component {
     this.state = {
       eventName: "",
       message: "",
-      search: "",
-      contacts: [],
-      isLoading: true
+      search: ""
     };
-  }
-
-  // error checking
-  async componentDidMount() {
-    this.setState({ isLoading: true });
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
-
-    const responseJson = await response.json();
-    this.setState({ contacts: responseJson, isLoading: false });
   }
 
   // dont really need the icon as i can go back from the stack
@@ -51,60 +41,70 @@ class CreateEvent extends React.Component {
     console.log("create event");
   };
 
-  render() {
-    const { eventName, message, search, contacts, isLoading } = this.state;
-
-    // filter search need to move to seperate function
-    const contactsToDisplay = contacts.filter(contact => {
-      const contactName = contact.name.toLowerCase();
-      const searchText = search.toLowerCase();
+  filterData = (text, contactsData) => {
+    const contactsFilterData = contactsData.filter(contactsData => {
+      const contactName = contactsData.fullName.toLowerCase();
+      const searchText = text.toLowerCase();
       return contactName.includes(searchText);
     });
 
-    // console.log(contactsToDisplay);
+    return contactsFilterData;
+  };
+
+  render() {
+    const { eventName, message, search } = this.state;
 
     return (
-      <DismissKeyboard>
-        <View style={styles.mainContainer}>
-          <KeyboardAvoidingView
-            style={styles.centerContentContainer}
-            behavior="padding"
-          >
-            <View style={styles.detailContainer}>
-              <Input
-                placeholder="Enter Event Name"
-                value={eventName}
-                stateToBeChanged="eventName"
-                onChangeText={this.onChangeText}
-              />
-              <Input
-                borderStyle={styles.messageInputStyle}
-                placeholder="Enter Message"
-                value={message}
-                stateToBeChanged="message"
-                onChangeText={this.onChangeText}
-                scrollEnabled={true}
-                multiline={true}
-              />
+      <Consumer>
+        {value => {
+          const { contacts } = value;
+          const contactsToDisplay = this.filterData(search, contacts);
 
-              <SearchBar
-                source={require("../assets/icon.png")}
-                value={search}
-                placeholder="Search"
-                stateToBeChanged="search"
-                onChangeText={this.onChangeText}
-              />
-            </View>
+          return (
+            <DismissKeyboard>
+              <View style={styles.mainContainer}>
+                <KeyboardAvoidingView
+                  style={styles.centerContentContainer}
+                  behavior="padding"
+                >
+                  <View style={styles.detailContainer}>
+                    <Input
+                      placeholder="Enter Event Name"
+                      value={eventName}
+                      stateToBeChanged="eventName"
+                      onChangeText={this.onChangeText}
+                    />
+                    <Input
+                      borderStyle={styles.messageInputStyle}
+                      placeholder="Enter Message"
+                      value={message}
+                      stateToBeChanged="message"
+                      onChangeText={this.onChangeText}
+                      scrollEnabled={true}
+                      multiline={true}
+                    />
 
-            <View style={styles.scrollContainer}>
-              <ContactList contacts={contactsToDisplay} isLoading={isLoading} />
-            </View>
-          </KeyboardAvoidingView>
-          <View style={styles.buttonContainer}>
-            <Button title="Create Event" onPress={this.createEvent} />
-          </View>
-        </View>
-      </DismissKeyboard>
+                    <SearchBar
+                      source={require("../assets/icon.png")}
+                      value={search}
+                      placeholder="Search"
+                      stateToBeChanged="search"
+                      onChangeText={this.onChangeText}
+                    />
+                  </View>
+
+                  <View style={styles.scrollContainer}>
+                    <ContactList contacts={contactsToDisplay} />
+                  </View>
+                </KeyboardAvoidingView>
+                <View style={styles.buttonContainer}>
+                  <Button title="Create Event" onPress={this.createEvent} />
+                </View>
+              </View>
+            </DismissKeyboard>
+          );
+        }}
+      </Consumer>
     );
   }
 }

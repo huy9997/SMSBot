@@ -1,60 +1,46 @@
 import React, { Component } from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { StyleSheet, FlatList } from "react-native";
 import Contact from "./Contact";
 
 // see if i should make this into a functional component
 class ContactList extends Component {
   constructor(props) {
     super(props);
-
-    // this.state = {
-    //   contacts: [],
-    //   isLoading: true
-    // };
+    this.state = {};
   }
 
-  // async componentDidMount() {
-  //   this.setState({ isLoading: true });
-  //   const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  renderItem = ({ item }) => {
+    return (
+      <Contact
+        key={item.id}
+        name={item.fullName}
+        phoneNumber={item.phoneNumber}
+        phoneNumberLabel={item.label}
+      />
+    );
+  };
 
-  //   const responseJson = await response.json();
-  //   this.setState({ contacts: responseJson, isLoading: false });
-  // }
+  keyExtractor = (contacts, index) => {
+    return `${index}`;
+  };
 
   render() {
-    const { contacts, isLoading } = this.props;
+    const { contacts } = this.props;
 
     return (
-      <ScrollView
+      <FlatList
         style={styles.mainContainer}
-        contentContainerStyle={styles.scrollViewInnerStyle}
-      >
-        {isLoading ? (
-          <Contact phoneNumber="(415) 123-1234" name="nick" />
-        ) : (
-          <React.Fragment>
-            {contacts.map(contact => {
-              return (
-                <Contact
-                  key={contact.id}
-                  name={contact.name}
-                  phoneNumber={contact.phone}
-                />
-              );
-            })}
-          </React.Fragment>
-        )}
-      </ScrollView>
+        data={contacts}
+        keyExtractor={this.keyExtractor}
+        renderItem={this.renderItem}
+      />
     );
   }
 }
 
 const styles = StyleSheet.create({
   mainContainer: {
-    width: "100%"
-  },
-  scrollViewInnerStyle: {
-    alignItems: "center"
+    flex: 1
   }
 });
 
