@@ -11,7 +11,6 @@ import DismissKeyboard from "../components/DismissKeyboard";
 import Button from "../components/Button";
 import Logo from "../components/Logo";
 import Input from "../components/Input";
-import AsyncStorage from "../functions/asyncStorage";
 
 class Login extends React.Component {
   constructor(props) {

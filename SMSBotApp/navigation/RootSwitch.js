@@ -11,8 +11,6 @@ const RootSwitch = createSwitchNavigator(
   },
   {
     initialRouteName: "Loading"
-    // initialRouteName: "Authentication",
-    // initialRouteName: "Application",
   }
 );
 
