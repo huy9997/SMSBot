@@ -1,4 +1,5 @@
 import { createStackNavigator } from "react-navigation";
+import LoadingScreen from "../screens/Loading";
 import CreateEventScreen from "../screens/CreateEvent";
 import StartScreen from "../screens/Start";
 import LoginScreen from "../screens/Login";
@@ -9,6 +10,7 @@ import MessagesScreen from "../screens/Messages";
 
 const IntroStack = createStackNavigator(
   {
+    Loading: LoadingScreen,
     Introduction: StartScreen,
     Login: LoginScreen,
     SignUp: SignUpScreen,
@@ -18,6 +20,7 @@ const IntroStack = createStackNavigator(
     Messages: MessagesScreen
   },
   {
+    // initialRouteName: "Loading",
     initialRouteName: "Introduction",
     // initialRouteName: "Login",
     // initialRouteName: "SignUp",
