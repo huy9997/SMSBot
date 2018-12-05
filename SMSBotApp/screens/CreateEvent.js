@@ -51,6 +51,28 @@ class CreateEvent extends React.Component {
     return contactsFilterData;
   };
 
+  sortDataAlphabetically = contacts => {
+    return contacts.sort((firstContact, secondContact) => {
+      const firstConactName = firstContact.fullName.toLowerCase();
+      const secondContactName = secondContact.fullName.toLowerCase();
+
+      if (firstConactName < secondContactName) {
+        return -1;
+      } else if (firstConactName > secondContactName) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  };
+
+  getContactsToDisplay = (text, contacts) => {
+    const filteredContacts = this.filterData(text, contacts);
+    const sortedContacts = this.sortDataAlphabetically(filteredContacts);
+
+    return sortedContacts;
+  };
+
   render() {
     const { eventName, message, search } = this.state;
 
@@ -58,7 +80,7 @@ class CreateEvent extends React.Component {
       <Consumer>
         {value => {
           const { contacts } = value;
-          const contactsToDisplay = this.filterData(search, contacts);
+          const contactsToDisplay = this.getContactsToDisplay(search, contacts);
 
           return (
             <DismissKeyboard>
@@ -124,7 +146,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 10,
     width: "80%",
-    height: 150,
+    height: 100,
     backgroundColor: "#005FE1"
   },
   scrollContainer: {
