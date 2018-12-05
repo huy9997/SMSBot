@@ -83,7 +83,6 @@ class CreateEvent extends React.Component {
                       scrollEnabled={true}
                       multiline={true}
                     />
-
                     <SearchBar
                       source={require("../assets/icon.png")}
                       value={search}
@@ -92,7 +91,6 @@ class CreateEvent extends React.Component {
                       onChangeText={this.onChangeText}
                     />
                   </View>
-
                   <View style={styles.scrollContainer}>
                     <ContactList contacts={contactsToDisplay} />
                   </View>

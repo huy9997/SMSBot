@@ -73,7 +73,6 @@ class Login extends React.Component {
                 onPress={() => this.login()}
                 disabled={this.isFormFilled()}
               />
-              {/* add functionality to forgot password */}
               <TouchableOpacity>
                 <Text style={{ color: "white" }}>Forgot Password?</Text>
               </TouchableOpacity>
@@ -95,7 +94,7 @@ const styles = StyleSheet.create({
     flex: 8
   },
   logoContainer: {
-    flex: 3
+    flex: 2
   },
   loginInputContainer: {
     flex: 4,

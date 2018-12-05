@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     flex: 8
   },
   logoContainer: {
-    flex: 3
+    flex: 2
   },
   loginInputContainer: {
     flex: 4,

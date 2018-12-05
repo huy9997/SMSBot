@@ -13,7 +13,6 @@ class Messages extends Component {
     };
   }
 
-  // make this dynamic
   static navigationOptions = ({ navigation }) => {
     const { contactName } = navigation.state.params;
 
@@ -35,6 +34,8 @@ class Messages extends Component {
   render() {
     const { message } = this.state;
 
+    console.log(message);
+
     return (
       <View style={styles.mainContainer}>
         <View style={styles.messagesContainer}>
@@ -43,10 +44,8 @@ class Messages extends Component {
         <KeyboardAvoidingView
           style={styles.replyContainer}
           behavior="padding"
-          keyboardVerticalOffset={100}
+          keyboardVerticalOffset={85}
         >
-          {/* reply section */}
-          {/* <View style={styles.replyContainer}> */}
           <IconButton
             borderStyle={styles.buttonBorder}
             source={require("../assets/icon.png")}
@@ -65,8 +64,6 @@ class Messages extends Component {
             borderStyle={styles.buttonBorder}
             source={require("../assets/icon.png")}
           />
-          {/* </View> */}
-          {/* reply section */}
         </KeyboardAvoidingView>
       </View>
     );

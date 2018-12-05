@@ -11,7 +11,7 @@ const Start = props => {
       <View style={styles.contentContainer}>
         <View style={styles.logoContainer}>
           <Image
-            // style={{ height: 50, width: 50 }}
+            style={{ height: 200, width: 200 }}
             source={require("../assets/icon.png")}
           />
           <Text style={styles.textStyle}>SMS Bot</Text>

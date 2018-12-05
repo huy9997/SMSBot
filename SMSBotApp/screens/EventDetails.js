@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import IconButton from "../components/IconButton";
-import Input from "../components/Input";
 import DismissKeyboard from "../components/DismissKeyboard";
-import EventDetailMessage from "../components/EventDetailMessage";
 import EventDetailMessagesList from "../components/EventDetailMessagesList";
 
 class EventDetails extends Component {
@@ -16,7 +14,6 @@ class EventDetails extends Component {
     };
   }
 
-  // make this dynamic
   static navigationOptions = ({ navigation }) => {
     const { eventName } = navigation.state.params;
 
