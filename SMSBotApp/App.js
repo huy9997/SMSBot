@@ -1,9 +1,15 @@
 import React from "react";
-import { createAppContainer } from "react-navigation";
-import IntroStack from "./navigation/IntroStack";
 import { Provider } from "./context/Context";
+import { createAppContainer } from "react-navigation";
+import RootSwitch from "./navigation/RootSwitch";
 
-const AppContainer = createAppContainer(IntroStack);
+import AuthenticationStack from "./navigation/AuthenticationStack";
+import ApplicationStack from "./navigation/ApplicationStack";
+
+// const AppContainer = createAppContainer(AuthenticationStack);
+// const AppContainer = createAppContainer(ApplicationStack);
+
+const AppContainer = createAppContainer(RootSwitch);
 
 class App extends React.Component {
   render() {
