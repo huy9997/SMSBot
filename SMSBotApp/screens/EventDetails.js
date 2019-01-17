@@ -22,7 +22,7 @@ class EventDetails extends Component {
       headerRight: (
         <IconButton
           borderStyle={{ margin: 30 }}
-          source={require("../assets/icon.png")}
+          source={require("../assets/Icons/menu.png")}
         />
       )
     };
@@ -48,7 +48,7 @@ class EventDetails extends Component {
           </View>
 
           <EventDetailMessagesList />
-          <IconButton source={require("../assets/icon.png")} />
+          <IconButton source={require("../assets/Icons/addCircle.png")} />
         </View>
       </DismissKeyboard>
     );
