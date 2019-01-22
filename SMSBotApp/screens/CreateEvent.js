@@ -26,7 +26,7 @@ class CreateEvent extends React.Component {
       headerRight: (
         <IconButton
           borderStyle={{ margin: 30 }}
-          source={require("../assets/icon.png")}
+          source={require("../assets/Icons/cancel.png")}
           onPress={() => navigation.goBack()}
         />
       )
@@ -106,7 +106,7 @@ class CreateEvent extends React.Component {
                       multiline={true}
                     />
                     <SearchBar
-                      source={require("../assets/icon.png")}
+                      source={require("../assets/Icons/search.png")}
                       value={search}
                       placeholder="Search"
                       stateToBeChanged="search"

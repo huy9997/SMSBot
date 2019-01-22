@@ -21,7 +21,7 @@ class Messages extends Component {
       headerRight: (
         <IconButton
           borderStyle={{ margin: 30 }}
-          source={require("../assets/icon.png")}
+          source={require("../assets/Icons/downArrow.png")}
         />
       )
     };
@@ -48,7 +48,7 @@ class Messages extends Component {
         >
           <IconButton
             borderStyle={styles.buttonBorder}
-            source={require("../assets/icon.png")}
+            source={require("../assets/Icons/addCircle.png")}
           />
           <Input
             borderStyle={styles.messageInputBorder}
@@ -62,7 +62,7 @@ class Messages extends Component {
           />
           <IconButton
             borderStyle={styles.buttonBorder}
-            source={require("../assets/icon.png")}
+            source={require("../assets/Icons/send.png")}
           />
         </KeyboardAvoidingView>
       </View>

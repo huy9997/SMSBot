@@ -30,9 +30,15 @@ class Contact extends React.PureComponent {
     return (
       <TouchableOpacity onPress={this.reverseIsChecked} style={borderStyle}>
         {isChecked ? (
-          <Image style={iconStyle} source={require("../assets/icon.png")} />
+          <Image
+            style={iconStyle}
+            source={require("../assets/Icons/filledCheckBox.png")}
+          />
         ) : (
-          <Image style={iconStyle} source={require("../assets/splash.png")} />
+          <Image
+            style={iconStyle}
+            source={require("../assets/Icons/emptyCheckBox.png")}
+          />
         )}
         <View>
           <Text style={textStyle}>{name}</Text>

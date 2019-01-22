@@ -33,13 +33,13 @@ class Events extends React.Component {
       headerLeft: (
         <IconButton
           borderStyle={{ margin: 30 }}
-          source={require("../assets/icon.png")}
+          source={require("../assets/Icons/menu.png")}
         />
       ),
       headerRight: (
         <IconButton
           borderStyle={{ margin: 30 }}
-          source={require("../assets/icon.png")}
+          source={require("../assets/Icons/search.png")}
           onPress={navigation.getParam("isSearching")}
         />
       )
@@ -57,7 +57,7 @@ class Events extends React.Component {
       <View style={styles.mainContainer}>
         <EventsList />
         <IconButton
-          source={require("../assets/icon.png")}
+          source={require("../assets/Icons/eventCalendar.png")}
           onPress={() => navigation.navigate("CreateEvent")}
         />
       </View>

@@ -47,7 +47,7 @@ class EventDetailMessage extends Component {
         {/* symbol */}
         {/* conditional render later on */}
         <Image
-          source={require("../assets/icon.png")}
+          source={require("../assets/Icons/thumbUpDown.png")}
           style={styles.statusIconStyle}
         />
         {/* date */}
