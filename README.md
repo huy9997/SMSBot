@@ -13,7 +13,7 @@
 - After cloning repository type the command "cd SMSBot/MobileApp/" to get into the mobile app folder
 - Type the command "npm install" in terminal to install the dependencies
 - Type the command "expo start" in terminal to start running the mobile app
-- Type "i" for ios simulator or "a" for android simulator or open expo app on mobile device and scan QR code on expo CLI
+- Type "i" for ios simulator or "a" for android simulator in terminal or open Expo app on mobile device and scan QR code on Expo CLI
 
 # SMS Bot Server (Work in progress)
 
