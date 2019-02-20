@@ -15,6 +15,26 @@
 - Type the command "expo start" in terminal to start running the mobile app
 - Type "i" for ios simulator or "a" for android simulator in terminal or open Expo app on mobile device and scan QR code on Expo CLI
 
+## Mock ups:
+
+![Mock Ups](./screenshots/mockup.png)
+
+### [Demo - Try it on Expo](https://expo.io/@niszeto/SMSBotApp)
+
+## Screenshots:
+
+<div style={{display: flex; flex-direction: row}}>
+  <img src="./screenshots/start.png" width="270" />
+  <img src="./screenshots/login.png" width="270" />
+  <img src="./screenshots/signup.png" width="270" />
+  <img src="./screenshots/events.png" width="270" />
+  <img src="./screenshots/createevent.png" width="270" />
+  <img src="./screenshots/createeventexample.png" width="270" />
+  <img src="./screenshots/eventdetails.png" width="270" />
+  <img src="./screenshots/messages.png" width="270" />
+  <img src="./screenshots/messagesexample.png" width="270" />
+</div>
+
 # SMS Bot Server (Work in progress)
 
 -make sure flask is installed
