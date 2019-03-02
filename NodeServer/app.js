@@ -1,10 +1,12 @@
-const keys = require('./config.js');
+const keys = require('/NodeServer/config.js');
 
 const accountSid = keys.account_sid;
 const authToken = keys.auth_token;
 const client = require('twilio')(accountSid, authToken);
 
-client.messages
+
+let sendMessage = ()=>{
+  client.messages
   .create({
      body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
      from: keys.account_phoneNumber,
@@ -12,4 +14,6 @@ client.messages
    })
   .then(message => console.log(message.sid))
   .done();
+}
+
 
