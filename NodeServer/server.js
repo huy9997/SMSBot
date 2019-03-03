@@ -5,12 +5,12 @@ const bodyParser = require('body-parser');
 const yargs = require('yargs');
 const sendSMS = require('./sendSMS.js');
 
-const axios =require('axios');
+const keys =require('./config/config.js');
 const app = express();
+const accountSid = keys.account_sid;
+const authToken = keys.auth_token;
 
 app.use(bodyParser.urlencoded({ extended: false }));
-
-
 yargs.options({
   a: {
     demand: true,
@@ -24,11 +24,9 @@ app.post('/', (req, res) => {
   const twiml = new MessagingResponse();
 
   if(req.body.Body == 'yes'){
-    twiml.message('hello');
-    //sendSMS.sendMessage('hello world',9258951162);
+    twiml.message('See you there! ');
   }else if(req.body.Body == 'no'){
-    twiml.message('you didnt say hi');
-   // sendSMS.sendMessage('hello',9258951162);
+    twiml.message('too bad :(');
   }else{
     //notify admin
   }
@@ -37,19 +35,42 @@ app.post('/', (req, res) => {
 });
 
 app.post('/createEvent',(req,res)=>{
-  //console.log(req);
+
   let bodyData = JSON.parse(Object.keys(req.body)[0]);
   console.log(bodyData. message);
-  //event name, message, phone numbers 
   sendSMS(bodyData.message,9258951162);
-  res.send(bodyData);
+  res.send(req.body);
 });
-/*
-axios.get('/createEvent')
-.then(function(response){
-  console.log(response);
-})
-*/
+
+app.get('/createEventData' ,(req,res)=>{
+  events = [{'id': 1,'name': 'Bonfire'},{'id':2,'name':'birthday'}];
+  //{'id':id++,'name':global}
+
+  res.send(JSON.stringify(events));
+});
+
+app.get('/twilio' ,(req,res)=>{
+  events = [{'id': 1,'name': 'Huy', 'recentMessage':'Yes I can come','status':'yes'},{'id': 2,'name': 'Huy', 'recentMessage':'Yes I can come','status':'yes'}];
+  res.send(JSON.stringify(events));
+});
+
+app.get('/messageList',(req,res)=>{
+  events = [{'id': 1,'name': 'Huy', 'body':'Yes I can come'},{'id': 2,'name': 'Huy', 'body':'Yes I can come'}];
+  res.send(JSON.stringify(events))
+});
+
+app.get('/getSMS',(req,res)=>{
+  const client = require('twilio')(accountSid, authToken);
+  client.chat.services(keys.sid)
+           .channels(keys.channelID)
+           .messages
+           .each(messages => console.log(messages.body));
+ // res.send(data);
+ console.log(res);
+ res.status(200);
+});
+
+
 
 http.createServer(app).listen(3000, () => {
   console.log('Express server listening on port 3000');

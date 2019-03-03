@@ -15,7 +15,7 @@ class MessagesList extends Component {
 
   async componentDidMount() {
     const response = await fetch(
-      "https://jsonplaceholder.typicode.com/comments"
+      "http://61f950e6.ngrok.io/messageList"
     );
 
     const responseJson = await response.json();

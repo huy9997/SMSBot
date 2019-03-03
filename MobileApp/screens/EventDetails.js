@@ -32,20 +32,26 @@ class EventDetails extends Component {
     this.setState({ [value]: text });
   };
 
+  // async componentDidMount() {
+  //   const response = await fetch(
+  //     "http://61f950e6.ngrok.io/createEvent"
+  //   );
+
+  //   const responseJson = await response.json();
+  //   this.setState({ message: responseJson, isLoading: false });
+  // }
+
   render() {
-    const { isLoading, message } = this.state;
+    // const { isLoading, message } = this.state;
 
     return (
       <DismissKeyboard>
         <View style={styles.mainContainer}>
-          <View style={styles.messageInputStyle}>
-            <Text style={styles.textStyle} textAlign="center">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
-              dignissimos porro reiciendis voluptatem vero at neque maxime
-              ratione, sequi enim possimus error accusantium et. Non vel eum
-              earum magnam amet!
-            </Text>
-          </View>
+          {/* <View style={styles.messageInputStyle}>
+            {isLoading ? <Text style={styles.textStyle} textAlign="center">Empty Message
+            </Text> : <Text style={styles.textStyle} textAlign="center">{message}
+            </Text>}
+          </View> */}
 
           <EventDetailMessagesList />
           <IconButton source={require("../assets/Icons/addCircle.png")} />

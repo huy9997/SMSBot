@@ -39,10 +39,8 @@ class CreateEvent extends React.Component {
   };
 
   createEvent = async() => {
-    //console.log("create event");
     const{eventName,message} = this.state;
-    //console.log(eventName,message);
-     const response = await fetch('http://61f950e6.ngrok.io/createEvent',{
+    const response = await fetch('http://61f950e6.ngrok.io/createEvent', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -51,17 +49,10 @@ class CreateEvent extends React.Component {
         eventName: this.state.eventName,
         message: this.state.message
       })
-    })
-    console.log(JSON.stringify({
-      eventName: this.state.eventName,
-      message: this.state.message
-    }));
-    console.log(`inside the react native project ${response._bodyText}`)
-    //console.log(JSON.stringify(response));
-    
+    });
 
-    // console.log(` This is the JSON Data${response.json}`);
-   // response.then(data => console.log(data));
+
+    //console.log(`inside the react native project ${response._bodyText}`)
   }
 
 

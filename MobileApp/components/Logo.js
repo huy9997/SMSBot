@@ -18,7 +18,7 @@ Logo.defaultProps = {
     width: 150
   },
   textStyle: {
-    fontSize: 20,
+    fontSize: 25,
     marginTop: 20,
     color: "white"
   }

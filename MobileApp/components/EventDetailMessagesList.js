@@ -13,7 +13,7 @@ class EventDetailMessagesList extends Component {
   }
 
   async componentDidMount() {
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const response = await fetch("http://61f950e6.ngrok.io/twilio");
 
     const responseJson = await response.json();
     this.setState({ messages: responseJson, isLoading: false });
@@ -36,8 +36,8 @@ class EventDetailMessagesList extends Component {
                 key={message.id}
                 contactName={message.name}
                 initials={message.id}
-                recentMessage={message.company.catchPhrase}
-                status={message.username}
+                recentMessage={message.recentMessage}
+                status={message.status}
                 currentDate="12/01/2018"
               />
             );
