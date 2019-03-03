@@ -23,9 +23,9 @@ class MessagesList extends Component {
   }
 
   renderItem = ({ item }) => {
-    if (item.id % 2 == 0) {
+    if (item.id ==1) {
       return <Message message={item.body} isReceiver={false} />;
-    } else {
+    } else if (item.id ==2){
       return <Message message={item.body} isReceiver={true} />;
     }
   };
