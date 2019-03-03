@@ -1,4 +1,4 @@
-const keys = require('/Users/user/Desktop/SMSBot/NodeServer/config/config.js');
+const keys = require('./config/config.js');
 const accountSid = keys.account_sid;
 const authToken = keys.auth_token;
 const client = require('twilio')(accountSid,authToken);
