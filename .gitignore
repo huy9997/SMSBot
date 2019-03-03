@@ -1,0 +1,8 @@
+config.py
+__pycache__
+.ipynb_checkpoints
+.DS_Store
+/SMSBotApp/node_modules
+NodeServer/config
+/Users/user/Desktop/SMSBot/MobileApp/config
+/Users/user/Desktop/SMSBot/NodeServer/node_modules
