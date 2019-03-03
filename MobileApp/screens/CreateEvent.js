@@ -40,7 +40,7 @@ class CreateEvent extends React.Component {
 
   createEvent = async() => {
     const{eventName,message} = this.state;
-    const response = await fetch('http://61f950e6.ngrok.io/createEvent', {
+    const response = await fetch('  https://f1eb4775.ngrok.io/createEvent', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',

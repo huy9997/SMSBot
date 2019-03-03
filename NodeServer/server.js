@@ -10,6 +10,8 @@ const app = express();
 const accountSid = keys.account_sid;
 const authToken = keys.auth_token;
 
+const client = require('twilio')(accountSid, authToken);
+
 app.use(bodyParser.urlencoded({ extended: false }));
 yargs.options({
   a: {
@@ -22,12 +24,13 @@ yargs.options({
 
 app.post('/', (req, res) => {
   const twiml = new MessagingResponse();
-
+  console.log(req.body.Body)
   if(req.body.Body == 'yes'){
     twiml.message('See you there! ');
   }else if(req.body.Body == 'no'){
     twiml.message('too bad :(');
   }else{
+    twiml.message('sure let me know when as possible');
     //notify admin
   }
   res.writeHead(200, { 'Content-Type': 'text/xml' });
@@ -36,6 +39,7 @@ app.post('/', (req, res) => {
 
 app.post('/createEvent',(req,res)=>{
 
+  
   let bodyData = JSON.parse(Object.keys(req.body)[0]);
   console.log(bodyData. message);
   sendSMS(bodyData.message,9258951162);
@@ -43,34 +47,30 @@ app.post('/createEvent',(req,res)=>{
 });
 
 app.get('/createEventData' ,(req,res)=>{
-  events = [{'id': 1,'name': 'Bonfire'},{'id':2,'name':'birthday'}];
+  var events = [{'id': 1,'name': 'bonfire'}];
+  res.send(JSON.stringify(events));
   //{'id':id++,'name':global}
 
-  res.send(JSON.stringify(events));
 });
 
 app.get('/twilio' ,(req,res)=>{
-  events = [{'id': 1,'name': 'Huy', 'recentMessage':'Yes I can come','status':'yes'},{'id': 2,'name': 'Huy', 'recentMessage':'Yes I can come','status':'yes'}];
+  events = [{'id': 1,'name': 'Huy', 'recentMessage':'Hey Huy Im a doing a bonfire on Sat can you come? ','status':'yes'},{'id': 2,'name': 'Huy', 'recentMessage':'Yes I can come','status':'yes'}];
   res.send(JSON.stringify(events));
 });
 
 app.get('/messageList',(req,res)=>{
-  events = [{'id': 1,'name': 'Huy', 'body':'Yes I can come'},{'id': 2,'name': 'Huy', 'body':'Yes I can come'}];
+  events = [{'id': 1,'name': 'joe', 'body':'Hey joe Im a doing a dinner on Sat can you come? '},{'id': 2,'name': 'david', 'body':'no sorry'}];
   res.send(JSON.stringify(events))
 });
 
 app.get('/getSMS',(req,res)=>{
-  const client = require('twilio')(accountSid, authToken);
-  client.chat.services(keys.sid)
-           .channels(keys.channelID)
-           .messages
-           .each(messages => console.log(messages.body));
- // res.send(data);
- console.log(res);
- res.status(200);
+  const accountSid = keys.account_sid;
+  const authToken = keys.auth_token;
+  
+  
+  client.messages.each(messages => console.log(messages.body));
+
 });
-
-
 
 http.createServer(app).listen(3000, () => {
   console.log('Express server listening on port 3000');

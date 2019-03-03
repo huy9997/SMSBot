@@ -13,7 +13,7 @@ class EventDetailMessagesList extends Component {
   }
 
   async componentDidMount() {
-    const response = await fetch("http://61f950e6.ngrok.io/twilio");
+    const response = await fetch("http://f1eb4775.ngrok.io/twilio");
 
     const responseJson = await response.json();
     this.setState({ messages: responseJson, isLoading: false });

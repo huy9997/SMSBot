@@ -18,7 +18,7 @@ class EventList extends React.Component {
 
   async componentDidMount() {
     this.setState({ isLoading: true });
-    const response = await fetch("http://61f950e6.ngrok.io/createEventData");
+    const response = await fetch("http://f1eb4775.ngrok.io/createEventData");
 
     const responseJson = await response.json();
     this.setState({ events: responseJson, isLoading: false });

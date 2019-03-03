@@ -15,7 +15,7 @@ class MessagesList extends Component {
 
   async componentDidMount() {
     const response = await fetch(
-      "http://61f950e6.ngrok.io/messageList"
+      " https://f1eb4775.ngrok.iomessageList"
     );
 
     const responseJson = await response.json();
